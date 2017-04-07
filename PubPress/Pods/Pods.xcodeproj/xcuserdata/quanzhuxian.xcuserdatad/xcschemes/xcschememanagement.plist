@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CarbonKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PubPress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6A139AAA56F5E98A0BF72A8B5E1C386C</key>
+		<key>352F3CCD20CDBC5C9822654BDACCE6D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>871BA95F508184FF9EBE40764E80E786</key>
+		<key>507F709D51187F0B01071961E808930C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>668B4E876482A630566BB9AD799AD53B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AADB776D3EC6ECFF7D01A62475F9D693</key>
+		<key>95FC65B93BEFA1A2205F7C5F985FE45C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BACB05F6FF9B7619FDAB02F23BD63401</key>
+		<key>BD969A77BD0303BD3D38389E8D54023B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

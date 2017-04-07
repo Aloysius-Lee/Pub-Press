@@ -34,7 +34,7 @@
         <!--Landing View Controller-->
         <scene sceneID="nUC-nv-wM5">
             <objects>
-                <viewController id="6mH-dJ-Beu" customClass="LandingViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingViewController" id="6mH-dJ-Beu" customClass="LandingViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sVe-jS-h7r"/>
                         <viewControllerLayoutGuide type="bottom" id="l60-3Q-8dd"/>
@@ -63,7 +63,7 @@
         <!--Map View Controller-->
         <scene sceneID="8QL-Kq-VQx">
             <objects>
-                <viewController id="PrG-qa-fLZ" customClass="MapViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="PrG-qa-fLZ" customClass="MapViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m30-zn-UdG"/>
                         <viewControllerLayoutGuide type="bottom" id="7Wk-OI-SyO"/>
@@ -76,12 +76,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oj-Jx-rHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2767" y="-39"/>
+            <point key="canvasLocation" x="2263" y="-12"/>
         </scene>
         <!--Profile Setting View Controller-->
         <scene sceneID="olU-Jc-pz5">
             <objects>
-                <viewController id="77e-4J-R0b" customClass="ProfileSettingViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileSettingViewController" id="77e-4J-R0b" customClass="ProfileSettingViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ME3-Sf-b8D"/>
                         <viewControllerLayoutGuide type="bottom" id="zCd-Q2-nps"/>
@@ -89,8 +89,56 @@
                     <view key="view" contentMode="scaleToFill" id="HAt-mc-Nlp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11D-OX-bpm">
+                                <rect key="frame" x="67" y="42" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOZ-As-6AP">
+                                <rect key="frame" x="0.0" y="557" width="375" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bb-eI-KNL">
+                                        <rect key="frame" x="133.5" y="-81" width="108" height="108"/>
+                                        <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="108" id="diI-Rx-cxC"/>
+                                            <constraint firstAttribute="width" secondItem="8bb-eI-KNL" secondAttribute="height" id="tZe-vT-eA0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="54"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_beer" translatesAutoresizingMaskIntoConstraints="NO" id="tnh-tZ-b1Y">
+                                        <rect key="frame" x="152.5" y="-62" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tnh-tZ-b1Y" secondAttribute="height" id="6he-f5-1y2"/>
+                                            <constraint firstAttribute="width" constant="70" id="uKt-pC-fYT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.81176470590000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="8bb-eI-KNL" firstAttribute="centerY" secondItem="tnh-tZ-b1Y" secondAttribute="centerY" id="Hux-zA-R8W"/>
+                                    <constraint firstItem="8bb-eI-KNL" firstAttribute="centerX" secondItem="tnh-tZ-b1Y" secondAttribute="centerX" id="qpS-oy-Skt"/>
+                                    <constraint firstItem="8bb-eI-KNL" firstAttribute="top" secondItem="bOZ-As-6AP" secondAttribute="top" constant="-81" id="uyv-xS-3f8"/>
+                                    <constraint firstAttribute="height" constant="110" id="z8P-aQ-AQD"/>
+                                    <constraint firstItem="8bb-eI-KNL" firstAttribute="centerX" secondItem="bOZ-As-6AP" secondAttribute="centerX" id="zK5-NZ-3yT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bOZ-As-6AP" secondAttribute="trailing" id="ERg-Ls-naQ"/>
+                            <constraint firstItem="zCd-Q2-nps" firstAttribute="top" secondItem="bOZ-As-6AP" secondAttribute="bottom" id="hZj-f8-Lrd"/>
+                            <constraint firstItem="bOZ-As-6AP" firstAttribute="leading" secondItem="HAt-mc-Nlp" secondAttribute="leading" id="v9l-Zq-4Zg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beerImageView" destination="tnh-tZ-b1Y" id="BYS-4y-07Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyR-Ik-oVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +147,7 @@
         <!--Root View Controller-->
         <scene sceneID="lRM-Xs-KYU">
             <objects>
-                <viewController id="2mO-rn-4pb" customClass="RootViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" id="2mO-rn-4pb" customClass="RootViewController" customModule="PubPress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sqw-Ub-UjK"/>
                         <viewControllerLayoutGuide type="bottom" id="EIN-4f-MCa"/>
@@ -110,7 +158,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sz4-ho-ima">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.81176470590000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="cOP-Z8-mVg"/>
                                 </constraints>
@@ -122,16 +170,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCQ-8L-JGd">
                                 <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_round_button" translatesAutoresizingMaskIntoConstraints="NO" id="rhk-0F-Hj7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QC4-Kw-6Ru">
                                         <rect key="frame" x="133.5" y="-81" width="108" height="108"/>
+                                        <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="108" id="MuL-ep-3Qh"/>
+                                            <constraint firstAttribute="width" secondItem="QC4-Kw-6Ru" secondAttribute="height" id="69k-Ne-ehO"/>
+                                            <constraint firstAttribute="width" constant="108" id="fTu-tE-P7t"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="54"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_beer" translatesAutoresizingMaskIntoConstraints="NO" id="rhk-0F-Hj7">
+                                        <rect key="frame" x="152.5" y="-62" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="MuL-ep-3Qh"/>
                                             <constraint firstAttribute="width" secondItem="rhk-0F-Hj7" secondAttribute="height" id="QCP-LU-vWU"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kit-Q2-uYy">
-                                        <rect key="frame" x="133.5" y="-81" width="108" height="108"/>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-I8-r7q">
                                         <rect key="frame" x="0.0" y="30" width="140" height="80"/>
                                         <constraints>
@@ -196,7 +255,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLf-XZ-kQF">
                                         <rect key="frame" x="140" y="84" width="235" height="27"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pointer" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-sV-q3e">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_beer" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-sV-q3e">
                                                 <rect key="frame" x="4" y="3" width="21" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CQy-sV-q3e" secondAttribute="height" id="tSG-Rs-Qlz"/>
@@ -220,27 +279,34 @@
                                             <constraint firstAttribute="bottom" secondItem="CQy-sV-q3e" secondAttribute="bottom" constant="3" id="xvk-K5-HdJ"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are here:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYb-CJ-YBk">
+                                        <rect key="frame" x="8" y="14" width="65.5" height="13"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.42745098039215684" green="0.81176470588235294" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="QC4-Kw-6Ru" firstAttribute="top" secondItem="nCQ-8L-JGd" secondAttribute="top" constant="-81" id="0pj-ah-oA4"/>
                                     <constraint firstItem="h6M-I8-r7q" firstAttribute="leading" secondItem="nCQ-8L-JGd" secondAttribute="leading" id="33b-oa-zca"/>
                                     <constraint firstItem="BLf-XZ-kQF" firstAttribute="top" secondItem="c8b-RF-tFH" secondAttribute="bottom" id="7tv-Qg-LFJ"/>
                                     <constraint firstItem="c8b-RF-tFH" firstAttribute="leading" secondItem="h6M-I8-r7q" secondAttribute="trailing" id="9IB-TK-n9S"/>
-                                    <constraint firstItem="Kit-Q2-uYy" firstAttribute="bottom" secondItem="rhk-0F-Hj7" secondAttribute="bottom" id="DTN-9V-PRJ"/>
                                     <constraint firstAttribute="trailing" secondItem="46e-4y-WDp" secondAttribute="trailing" id="Hep-tg-dWg"/>
+                                    <constraint firstItem="46e-4y-WDp" firstAttribute="top" secondItem="IYb-CJ-YBk" secondAttribute="bottom" constant="3" id="JC7-d1-MX6"/>
                                     <constraint firstItem="c8b-RF-tFH" firstAttribute="top" secondItem="46e-4y-WDp" secondAttribute="bottom" id="O50-pM-U8A"/>
+                                    <constraint firstItem="QC4-Kw-6Ru" firstAttribute="centerY" secondItem="rhk-0F-Hj7" secondAttribute="centerY" id="TDX-8g-UhK"/>
                                     <constraint firstAttribute="bottom" secondItem="h6M-I8-r7q" secondAttribute="bottom" id="Uof-gA-Qog"/>
                                     <constraint firstItem="BLf-XZ-kQF" firstAttribute="leading" secondItem="h6M-I8-r7q" secondAttribute="trailing" id="Vla-Sq-2pZ"/>
                                     <constraint firstItem="46e-4y-WDp" firstAttribute="top" secondItem="h6M-I8-r7q" secondAttribute="top" id="ZB3-ww-oXg"/>
-                                    <constraint firstItem="rhk-0F-Hj7" firstAttribute="centerX" secondItem="nCQ-8L-JGd" secondAttribute="centerX" id="aSx-dK-cj0"/>
+                                    <constraint firstItem="QC4-Kw-6Ru" firstAttribute="centerX" secondItem="rhk-0F-Hj7" secondAttribute="centerX" id="bTa-F3-DfK"/>
                                     <constraint firstAttribute="trailing" secondItem="BLf-XZ-kQF" secondAttribute="trailing" id="dEP-Bq-zG6"/>
-                                    <constraint firstItem="Kit-Q2-uYy" firstAttribute="trailing" secondItem="rhk-0F-Hj7" secondAttribute="trailing" id="kAE-Jn-FjE"/>
-                                    <constraint firstItem="Kit-Q2-uYy" firstAttribute="leading" secondItem="rhk-0F-Hj7" secondAttribute="leading" id="kc2-HX-cuI"/>
+                                    <constraint firstItem="QC4-Kw-6Ru" firstAttribute="centerX" secondItem="nCQ-8L-JGd" secondAttribute="centerX" id="iCw-ep-T2y"/>
                                     <constraint firstAttribute="trailing" secondItem="c8b-RF-tFH" secondAttribute="trailing" id="lFf-Tc-FG7"/>
                                     <constraint firstAttribute="height" constant="110" id="qpo-fN-E5Z"/>
-                                    <constraint firstItem="Kit-Q2-uYy" firstAttribute="top" secondItem="rhk-0F-Hj7" secondAttribute="top" id="uOC-Es-lJE"/>
+                                    <constraint firstItem="IYb-CJ-YBk" firstAttribute="leading" secondItem="nCQ-8L-JGd" secondAttribute="leading" constant="8" id="vNV-14-EO1"/>
                                     <constraint firstItem="46e-4y-WDp" firstAttribute="leading" secondItem="h6M-I8-r7q" secondAttribute="trailing" id="wIJ-LA-gIm"/>
-                                    <constraint firstItem="rhk-0F-Hj7" firstAttribute="top" secondItem="nCQ-8L-JGd" secondAttribute="top" constant="-81" id="x9b-4J-d5u"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -260,6 +326,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qic-Ex-p4t"/>
                     <connections>
+                        <outlet property="beerImageView" destination="rhk-0F-Hj7" id="BJb-eA-aA6"/>
+                        <outlet property="contentView" destination="DzR-g3-R89" id="Guk-KV-sj8"/>
                         <outlet property="profileView" destination="nCQ-8L-JGd" id="D0s-u4-YWY"/>
                     </connections>
                 </viewController>
@@ -269,8 +337,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_beer" width="128" height="128"/>
         <image name="icon_clock" width="128" height="128"/>
-        <image name="icon_round_button" width="213" height="214"/>
         <image name="image_beer_cup" width="685" height="789"/>
         <image name="location-pointer" width="128" height="128"/>
     </resources>

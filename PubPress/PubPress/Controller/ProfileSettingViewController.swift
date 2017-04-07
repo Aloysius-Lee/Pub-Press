@@ -11,10 +11,15 @@ import UIKit
 
 class ProfileSettingViewController: BaseViewController {
 
+    @IBOutlet weak var beerImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        beerImageView.setImageWith(color: UIColor.black)
+    
     }
 
     override func didReceiveMemoryWarning() {
