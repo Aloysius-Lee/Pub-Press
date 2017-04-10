@@ -24,6 +24,7 @@
 		0A38867C1E98306E003C2A4D /* GOTHICB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0A3886791E982FC0003C2A4D /* GOTHICB.TTF */; };
 		0A38867D1E983072003C2A4D /* GOTHICI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0A38867A1E982FC0003C2A4D /* GOTHICI.TTF */; };
 		0A38867F1E9838C0003C2A4D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */; };
+		0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */; };
 		1AC27ECA2449FD3B10EEA36E /* Pods_PubPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		0A3886791E982FC0003C2A4D /* GOTHICB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICB.TTF; sourceTree = "<group>"; };
 		0A38867A1E982FC0003C2A4D /* GOTHICI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHICI.TTF; sourceTree = "<group>"; };
 		0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentGateWayUtils.swift; sourceTree = "<group>"; };
 		1074396C1BAC56E2CF8CF0A3 /* Pods-PubPress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.debug.xcconfig"; sourceTree = "<group>"; };
 		7A8DEC4378014462FD700D01 /* Pods-PubPress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.release.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.release.xcconfig"; sourceTree = "<group>"; };
 		FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PubPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				0A38866A1E9829BD003C2A4D /* CommonUtils.swift */,
 				0A3886661E9829A3003C2A4D /* Constants.swift */,
 				0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */,
+				0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A38865E1E98229D003C2A4D /* AppDelegate.swift in Sources */,
+				0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */,
 				0A3886701E982ADC003C2A4D /* LandingViewController.swift in Sources */,
 				0A38866B1E9829BD003C2A4D /* CommonUtils.swift in Sources */,
 				0A3886651E98292A003C2A4D /* UserModel.swift in Sources */,

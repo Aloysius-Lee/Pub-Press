@@ -11,7 +11,9 @@ pod 'SDWebImage'
 pod 'SwiftyJSON'
 pod 'Toast-Swift', '~> 2.0.0'
 pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'GooglePlacePicker'
 pod 'CarbonKit'
 pod 'Material'
-
+pod 'Stripe'
 end

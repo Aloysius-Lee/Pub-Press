@@ -40,5 +40,7 @@
 		<string>GOTHICB</string>
 		<string>GOTHICI</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>wants to use user location</string>
 </dict>
 </plist>

@@ -6,12 +6,18 @@ PODS:
   - GoogleMaps/Base (2.2.0)
   - GoogleMaps/Maps (2.2.0):
     - GoogleMaps/Base
+  - GooglePlacePicker (2.2.0):
+    - GoogleMaps (= 2.2.0)
+    - GooglePlaces (= 2.2.0)
+  - GooglePlaces (2.2.0):
+    - GoogleMaps/Base (= 2.2.0)
   - Material (2.4.19):
     - Material/Core (= 2.4.19)
   - Material/Core (2.4.19)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - Stripe (9.4.0)
   - SwiftyJSON (3.1.4)
   - Toast-Swift (2.0.0)
 
@@ -19,8 +25,11 @@ DEPENDENCIES:
   - Alamofire
   - CarbonKit
   - GoogleMaps
+  - GooglePlacePicker
+  - GooglePlaces
   - Material
   - SDWebImage
+  - Stripe
   - SwiftyJSON
   - Toast-Swift (~> 2.0.0)
 
@@ -28,11 +37,14 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GooglePlacePicker: 345b1aabd42c9d6d9bf2369c1bae1234d903e764
+  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   Material: 67b52869f68ab95757e14801ffba0a52a4f19c31
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  Stripe: '0957cc85df5c3df153e6fb44d307ea4b778b6bd1'
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: e366507e900f1767cc5b46bf638a7435654724c0
+PODFILE CHECKSUM: 235632561148b3d6ae5d5121bb7039245a5782ea
 
 COCOAPODS: 1.2.0

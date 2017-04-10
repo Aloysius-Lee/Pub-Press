@@ -17,6 +17,9 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
     
     @IBOutlet weak var beerImageView: UIImageView!
     
+    
+    var selectedVC = 0
+    
     var carbonTabSwipeNavigation = CarbonTabSwipeNavigation()
     var contentVCs : [UIViewController] = []
 
@@ -71,6 +74,14 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
         carbonTabSwipeNavigation.setTabBarHeight(0)
         
     }
+    @IBAction func beerButtonTapped(_ sender: Any) {
+        if selectedVC == 0{
+            setVC(1)
+        }
+        else{
+            setVC(0)
+        }
+    }
 
     //Mark: - CarbonTabSwipeNavigation Delegate
     // required
@@ -78,6 +89,14 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController{
        
             return contentVCs[Int(index)]
+    }
+    
+    func setVC(_ index: Int) {
+        carbonTabSwipeNavigation.setCurrentTabIndex(UInt(index), withAnimation: true)
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
+        selectedVC = Int(index)
     }
 
 

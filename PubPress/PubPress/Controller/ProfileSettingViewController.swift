@@ -12,6 +12,8 @@ import UIKit
 class ProfileSettingViewController: BaseViewController {
 
     @IBOutlet weak var beerImageView: UIImageView!
+    @IBOutlet weak var settingImageView: UIImageView!
+    @IBOutlet weak var giftImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ class ProfileSettingViewController: BaseViewController {
         // Do any additional setup after loading the view.
         
         beerImageView.setImageWith(color: UIColor.black)
+        settingImageView.setImageWith(color: UIColor.darkGray)
+        giftImageView.setImageWith(color: UIColor.darkGray)
     
     }
 
