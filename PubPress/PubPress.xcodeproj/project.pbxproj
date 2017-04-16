@@ -26,6 +26,8 @@
 		0A38867F1E9838C0003C2A4D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */; };
 		0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */; };
 		1AC27ECA2449FD3B10EEA36E /* Pods_PubPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */; };
+		E118DC111EA3195300305B80 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118DC101EA3195300305B80 /* AnimationTest.swift */; };
+		E1AF25701E9F2F1400593B77 /* MapContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF256F1E9F2F1400593B77 /* MapContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentGateWayUtils.swift; sourceTree = "<group>"; };
 		1074396C1BAC56E2CF8CF0A3 /* Pods-PubPress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.debug.xcconfig"; sourceTree = "<group>"; };
 		7A8DEC4378014462FD700D01 /* Pods-PubPress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.release.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.release.xcconfig"; sourceTree = "<group>"; };
+		E118DC101EA3195300305B80 /* AnimationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
+		E1AF256F1E9F2F1400593B77 /* MapContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContentView.swift; sourceTree = "<group>"; };
 		FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PubPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,7 @@
 				0A38866F1E982ADC003C2A4D /* LandingViewController.swift */,
 				0A3886731E982B47003C2A4D /* MapViewController.swift */,
 				0A3886751E982B5C003C2A4D /* ProfileSettingViewController.swift */,
+				E118DC101EA3195300305B80 /* AnimationTest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				0A3886661E9829A3003C2A4D /* Constants.swift */,
 				0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */,
 				0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */,
+				E1AF256F1E9F2F1400593B77 /* MapContentView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AF25701E9F2F1400593B77 /* MapContentView.swift in Sources */,
 				0A38865E1E98229D003C2A4D /* AppDelegate.swift in Sources */,
 				0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */,
 				0A3886701E982ADC003C2A4D /* LandingViewController.swift in Sources */,
@@ -341,6 +348,7 @@
 				0A3886651E98292A003C2A4D /* UserModel.swift in Sources */,
 				0A3886741E982B47003C2A4D /* MapViewController.swift in Sources */,
 				0A3886421E98222A003C2A4D /* ViewController.swift in Sources */,
+				E118DC111EA3195300305B80 /* AnimationTest.swift in Sources */,
 				0A3886671E9829A3003C2A4D /* Constants.swift in Sources */,
 				0A3886761E982B5C003C2A4D /* ProfileSettingViewController.swift in Sources */,
 				0A3886721E982B0E003C2A4D /* RootViewController.swift in Sources */,

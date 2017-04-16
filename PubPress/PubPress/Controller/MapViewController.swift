@@ -13,8 +13,9 @@ import SDWebImage
 
 class MapViewController: BaseViewController , GMSMapViewDelegate{
 
-    @IBOutlet weak var mapView: GMSMapView!
+    //@IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var profileIamgeView: UIImageView!
+    @IBOutlet weak var mapContentView: UIView!
     
     var london: GMSMarker?
     var londonView: UIImageView?
@@ -26,42 +27,6 @@ class MapViewController: BaseViewController , GMSMapViewDelegate{
 
         userImage = UIImage(named: "icon_profile")
         
-        /*
-        let returnedPlaces: NSArray? = jsonResult["results"] as? NSArray
-        
-        if returnedPlaces != nil {
-            
-            for index in 0..<returnedPlaces!.count {
-                
-                if let returnedPlace = returnedPlaces?[index] as? NSDictionary {
-                    
-                    var placeName = ""
-                    var latitude = 0.0
-                    var longitude = 0.0
-                    
-                    if let name = returnedPlace["name"] as? NSString {
-                        placeName = name as String
-                    }
-                    
-                    if let geometry = returnedPlace["geometry"] as? NSDictionary {
-                        if let location = geometry["location"] as? NSDictionary {
-                            if let lat = location["lat"] as? Double {
-                                latitude = lat
-                            }
-                            
-                            if let lng = location["lng"] as? Double {
-                                longitude = lng
-                            }
-                        }
-                    }
-                    
-                    let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2DMake(latitude, longitude)
-                    marker.title = placeName
-                    marker.map = self.mapView
-                }
-            }
-        }*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +51,7 @@ class MapViewController: BaseViewController , GMSMapViewDelegate{
                                               longitude: currentLongitude,
                                               zoom: 14)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        view = mapView
+        mapContentView = mapView
         
         mapView.delegate = self
         
@@ -109,12 +74,12 @@ class MapViewController: BaseViewController , GMSMapViewDelegate{
     }
     
     
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+    /*func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         UIView.animate(withDuration: 5.0, animations: { () -> Void in
             self.londonView?.tintColor = .blue
         }, completion: {(finished) in
             // Stop tracking view changes to allow CPU to idle.
             self.london?.tracksViewChanges = false
         })
-    }
+    }*/
 }
