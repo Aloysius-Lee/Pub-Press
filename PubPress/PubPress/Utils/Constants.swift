@@ -32,8 +32,21 @@ class Constants {
     static let KEY_USER_EMAIL               = "user_email"
     static let KEY_USER_PASSWORD            = "user_password"
     
+    //pub model
     
-
+    static let KEY_PUB_ID                   = "id"
+    static let KEY_PUB_GEOMETRY             = "geometry"
+    static let KEY_PUB_LOCATION             = "location"
+    static let KEY_PUB_LAT                  = "lat"
+    static let KEY_PUB_LON                  = "lng"
+    static let KEY_PUB_ICON                 = "icon"
+    static let KEY_PUB_NAME                 = "name"
+    static let KEY_PUB_VINICITY             = "vicinity"
+    static let KEY_PUB_PLACE_ID             = "place_id"
+    
+    //google result
+    
+    static let KEY_GOOGLE_RESULT            = "results"
     
     
     

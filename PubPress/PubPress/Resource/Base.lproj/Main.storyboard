@@ -93,27 +93,26 @@
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBn-YA-4jT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="418"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nbk-Ek-SaZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VBn-YA-4jT" firstAttribute="leading" secondItem="MFK-2E-X5S" secondAttribute="leading" id="GJW-yf-nX2"/>
-                            <constraint firstAttribute="trailing" secondItem="VBn-YA-4jT" secondAttribute="trailing" id="JOB-6X-54e"/>
-                            <constraint firstItem="VBn-YA-4jT" firstAttribute="top" secondItem="MFK-2E-X5S" secondAttribute="top" id="mQK-7j-FSH"/>
-                            <constraint firstItem="7Wk-OI-SyO" firstAttribute="top" secondItem="VBn-YA-4jT" secondAttribute="bottom" constant="150" id="nas-8q-4Sg"/>
+                            <constraint firstItem="7Wk-OI-SyO" firstAttribute="top" secondItem="Nbk-Ek-SaZ" secondAttribute="bottom" id="FLE-j3-Fqc"/>
+                            <constraint firstItem="Nbk-Ek-SaZ" firstAttribute="top" secondItem="MFK-2E-X5S" secondAttribute="top" id="Hhs-iY-XrX"/>
+                            <constraint firstAttribute="trailing" secondItem="Nbk-Ek-SaZ" secondAttribute="trailing" id="b70-5F-KCc"/>
+                            <constraint firstItem="Nbk-Ek-SaZ" firstAttribute="leading" secondItem="MFK-2E-X5S" secondAttribute="leading" id="ubC-5V-TjW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapContentView" destination="VBn-YA-4jT" id="vjc-xJ-8C1"/>
+                        <outlet property="mapView" destination="Nbk-Ek-SaZ" id="4W7-Vm-gXO"/>
                         <outlet property="profileIamgeView" destination="InK-xt-tw8" id="LqT-VD-x3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oj-Jx-rHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="-174"/>
+            <point key="canvasLocation" x="2242.5" y="-174.29577464788733"/>
         </scene>
         <!--Profile Setting View Controller-->
         <scene sceneID="olU-Jc-pz5">

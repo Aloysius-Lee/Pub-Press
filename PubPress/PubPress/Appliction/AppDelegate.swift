@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GMSServices.provideAPIKey("AIzaSyA25SsUim8a0a5zBw0oxhsvU8bc3qx9myA")
-        GMSPlacesClient.provideAPIKey("AIzaSyA25SsUim8a0a5zBw0oxhsvU8bc3qx9myA")
+        GMSServices.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")
+        GMSPlacesClient.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -134,6 +134,6 @@ extension AppDelegate : CLLocationManagerDelegate {
 
 //MARK: - current location
 
-var currentLatitude = 0.0
+var currentLatitude = -100.0
 var currentLongitude = 0.0
 

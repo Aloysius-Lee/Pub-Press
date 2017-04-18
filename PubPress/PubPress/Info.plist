@@ -40,6 +40,11 @@
 		<string>GOTHICB</string>
 		<string>GOTHICI</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>wants to use user location</string>
 </dict>

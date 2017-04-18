@@ -75,11 +75,17 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
         
     }
     @IBAction func beerButtonTapped(_ sender: Any) {
-        if selectedVC == 0{
+        /*if selectedVC == 0{
             setVC(1)
         }
         else{
             setVC(0)
+        }*/
+        if currentLatitude > -100{
+            ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 2000, completion: {
+                success in
+            
+            })
         }
     }
 
