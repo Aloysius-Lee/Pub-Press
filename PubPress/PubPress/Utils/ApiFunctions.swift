@@ -25,7 +25,6 @@ class ApiFunctions{
             if response.result.isSuccess
             {
                 let json = JSON(response.result.value!)
-                NSLog("\(json)")
                 var pubsArray : [PubModel] = []
                 let pubsJSON = json[Constants.KEY_GOOGLE_RESULT].arrayValue
                 for pubJSON in pubsJSON {

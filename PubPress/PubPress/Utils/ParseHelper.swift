@@ -43,21 +43,27 @@ class ParseHelper {
             "point_of_interest",
             "establishment"
             ],
-            "vicinity": "Changbaishan East Road, Yanji, Yanbian"
+         "vicinity": "Changbaishan East Road, Yanji, Yanbian",
+         "opening_hours" : {
+         "open_now" : true,
+         "weekday_text" : []
+         }
          
          }
         */
-        let pub = PubModel()
         
-        pub.pub_id = rawData[Constants.KEY_PUB_ID].stringValue
-        pub.pub_iconurl = rawData[Constants.KEY_PUB_ICON].stringValue
-        pub.pub_placeid = rawData[Constants.KEY_PUB_PLACE_ID].stringValue
-        pub.pub_vicinity = rawData[Constants.KEY_PUB_VINICITY].stringValue
-        pub.pub_name = rawData[Constants.KEY_PUB_NAME].stringValue
+        let pub = PubModel()        
+        pub.pub_id = rawData[Constants.KEY_PUB_ID].nonNullStringValue
+        pub.pub_iconurl = rawData[Constants.KEY_PUB_ICON].nonNullStringValue
+        pub.pub_placeid = rawData[Constants.KEY_PUB_PLACE_ID].nonNullStringValue
+        pub.pub_vicinity = rawData[Constants.KEY_PUB_VINICITY].nonNullStringValue
+        pub.pub_name = rawData[Constants.KEY_PUB_NAME].nonNullStringValue
         let geometry = rawData[Constants.KEY_PUB_GEOMETRY]
         let location = geometry[Constants.KEY_PUB_LOCATION]
-        pub.pub_latitude = location[Constants.KEY_PUB_LAT].doubleValue
-        pub.pub_longitude = location[Constants.KEY_PUB_LON].doubleValue
+        pub.pub_latitude = location[Constants.KEY_PUB_LAT].nonNullDoubleValue
+        pub.pub_longitude = location[Constants.KEY_PUB_LON].nonNullDoubleValue
+        let openingHours = rawData[Constants.KEY_PUB_OPENINGHOURS]
+        pub.pub_opennow = openingHours[Constants.KEY_PUB_OPENNOW].nonNullBoolValue
         
         return pub
         

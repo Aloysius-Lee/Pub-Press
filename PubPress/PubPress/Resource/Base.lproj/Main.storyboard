@@ -93,8 +93,11 @@
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nbk-Ek-SaZ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbk-Ek-SaZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PrG-qa-fLZ" id="FIe-jl-lv5"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -399,8 +402,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="qic-Ex-p4t"/>
                     <connections>
+                        <outlet property="addressLabel" destination="9zs-nk-uv8" id="UEx-er-0Ux"/>
                         <outlet property="beerImageView" destination="rhk-0F-Hj7" id="BJb-eA-aA6"/>
+                        <outlet property="cheapestBeerLabel" destination="h0j-fx-TDw" id="IKz-cG-b6q"/>
                         <outlet property="contentView" destination="DzR-g3-R89" id="Guk-KV-sj8"/>
+                        <outlet property="openTimeLabel" destination="cum-Gk-jfY" id="Yb8-I8-MB2"/>
                         <outlet property="profileView" destination="nCQ-8L-JGd" id="D0s-u4-YWY"/>
                     </connections>
                 </viewController>

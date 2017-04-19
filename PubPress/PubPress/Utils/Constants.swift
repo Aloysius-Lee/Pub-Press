@@ -43,9 +43,10 @@ class Constants {
     static let KEY_PUB_NAME                 = "name"
     static let KEY_PUB_VINICITY             = "vicinity"
     static let KEY_PUB_PLACE_ID             = "place_id"
-    
+    static let KEY_PUB_OPENINGHOURS         = "opening_hours"
+    static let KEY_PUB_OPENNOW              = "open_now"
     //google result
-    
+
     static let KEY_GOOGLE_RESULT            = "results"
     
     

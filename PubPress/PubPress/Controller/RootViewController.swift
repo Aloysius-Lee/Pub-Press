@@ -14,6 +14,9 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var contentView: UIView!
     
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var openTimeLabel: UILabel!
+    @IBOutlet weak var cheapestBeerLabel: UILabel!
     
     @IBOutlet weak var beerImageView: UIImageView!
     
@@ -82,10 +85,12 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
             setVC(0)
         }*/
         if currentLatitude > -100{
-            ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 2000, completion: {
-                success in
-            
-            })
+            if selectedVC == 0{
+                setVC(1)
+            }
+            else{
+                setVC(0)
+            }
         }
     }
 

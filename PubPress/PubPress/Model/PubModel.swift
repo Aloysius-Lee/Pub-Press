@@ -15,9 +15,11 @@ class PubModel {
     var pub_name                = ""
     var pub_latitude            = 0.0
     var pub_longitude           = 0.0
-    var pub_iconurl             = ""
+    var pub_iconurl             = ""    
     var pub_photos: [String]    = []
-    var pub_placeid =           ""
-    var pub_vicinity =          ""
+    var pub_placeid             = ""
+    var pub_vicinity            = ""
+    var pub_opennow             = false
+    //var pub_openhours:[String]  = []
     
 }
