@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
+
 import CoreLocation
 
 
@@ -22,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        /*
         GMSServices.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")
-        GMSPlacesClient.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")
+        GMSPlacesClient.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")*/
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
