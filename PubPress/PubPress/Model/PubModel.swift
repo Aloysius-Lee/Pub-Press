@@ -15,11 +15,35 @@ class PubModel {
     var pub_name                = ""
     var pub_latitude            = 0.0
     var pub_longitude           = 0.0
-    var pub_iconurl             = ""    
-    var pub_photos: [String]    = []
+    var pub_iconurl             = ""
     var pub_placeid             = ""
     var pub_vicinity            = ""
     var pub_opennow             = false
+    var photo_reference         = ""
+    var pub_openhours: [String] = []
     //var pub_openhours:[String]  = []
     
+    func getOpenhourString() -> String {
+        var result = ""
+        if pub_opennow {
+            result = "Open now"
+        }
+        else{
+            result = "Close now"
+        }
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: Date())
+        let weekdayString = CommonUtils.getWeekDayString(weekday)
+        for time in pub_openhours {
+
+            if time.hasPrefix(weekdayString)
+            {
+                result +=  time.replacingOccurrences(of: weekdayString, with: "")
+                break
+                
+            }
+        }
+        
+        return result
+    }
 }

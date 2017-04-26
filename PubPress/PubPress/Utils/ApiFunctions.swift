@@ -14,29 +14,76 @@ import SwiftyJSON
 class ApiFunctions{
     
     static let SERVER_URL                  = "http://35.164.51.96/index.php/Api/"
+    
+    
     static let REQ_GETNEARBYPUBS           = SERVER_URL + "getNearByPubs"
+    static let REQ_GOOGLESEARCH             = SERVER_URL + "getGoogleSearch"
+    static let REQ_GETPLACEDETAILS          = SERVER_URL + "getPlaceDetails"
+    static let REQ_GETGOOGLEPHOTOES         = SERVER_URL + "getGooglePhotoes"
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
+        
+        googleSearch(latitude: latitude, longitude: longitude, radius: radius, completion: {
+            success, pubs in
+            completion(success, pubs)
+        })
+ 
+    }
+    
+    
+    static func googleSearch(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         let params = ["latitude": latitude,
                       "longitude": longitude,
-                      "radius": radius]
+                      "radius": radius] as [String : Any]
         
         Alamofire.request(REQ_GETNEARBYPUBS, method: .post, parameters: params).responseJSON { response in
             if response.result.isSuccess
             {
                 let json = JSON(response.result.value!)
-                var pubsArray : [PubModel] = []
-                let pubsJSON = json[Constants.KEY_GOOGLE_RESULT].arrayValue
-                for pubJSON in pubsJSON {
-                    pubsArray.append(ParseHelper.parsePub(pubJSON))
+                var locations : [PubModel] = []
+                let locationsJSON = json[Constants.KEY_GOOGLE_RESULT].arrayValue
+                for locationJSON in locationsJSON {
+                    locations.append(ParseHelper.parsePub(locationJSON))
                 }
-                completion(true, pubsArray)
+                completion(true, locations)
                 
             }
             else {
                 completion(false, [])
             }
         }
- 
+    }
+    
+    static func getPlaceDetails(_ placeid: String,  completion: @escaping (Bool, PubModel?) -> ()) {
+        let params = ["placeid": placeid]
+        
+        Alamofire.request(REQ_GETPLACEDETAILS, method: .post, parameters: params).responseJSON { response in
+            if response.result.isSuccess
+            {
+                let json = JSON(response.result.value!)
+                let locationJSON = json[Constants.KEY_GOOGLE_RESULT]["result"]
+                completion(true, ParseHelper.parsePub(locationJSON))
+                
+            }
+            else {
+                completion(false, nil)
+            }
+        }
+    }
+    
+    
+    static func getGooglePhotoes(_ photo_reference: String,  completion: @escaping (Bool, Data?) -> ()) {
+        let params = ["photo_reference": photo_reference]
+        
+        Alamofire.request(REQ_GETGOOGLEPHOTOES, method: .post, parameters: params).responseData { response in
+            if response.result.isSuccess
+            {
+                completion(true, response.result.value)
+                
+            }
+            else {
+                completion(false, nil)
+            }
+        }
     }
 }

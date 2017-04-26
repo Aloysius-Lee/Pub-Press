@@ -9,7 +9,7 @@
 import UIKit
 import CarbonKit
 
-class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
+class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
 
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -19,7 +19,11 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
     @IBOutlet weak var cheapestBeerLabel: UILabel!
     
     @IBOutlet weak var beerImageView: UIImageView!
+    @IBOutlet weak var positionImageView: UIImageView!
+    @IBOutlet weak var pubNameLabel: UILabel!
     
+    
+    var currentPub = PubModel()
     
     var selectedVC = 0
     
@@ -69,7 +73,9 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items:["1", "2"], delegate : self)
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: contentView)
         style()
-        
+        if currentLatitude < -90{
+            self.view.isUserInteractionEnabled = false
+        }
     }
     
     func style(){
@@ -109,6 +115,40 @@ class RootViewController: UIViewController, CarbonTabSwipeNavigationDelegate{
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
         selectedVC = Int(index)
     }
-
+    
+    func setPubView() {
+        
+        addressLabel.text = currentPub.pub_vicinity
+        if currentPub.pub_opennow {
+            openTimeLabel.text = "Open now"
+            
+        }
+        else{
+            openTimeLabel.text = "Close now"
+        }
+        pubNameLabel.text = currentPub.pub_name
+        
+        if currentPub.photo_reference.characters.count > 0{
+            //showLoadingView()
+            self.view.isUserInteractionEnabled = false
+            ApiFunctions.getGooglePhotoes(currentPub.photo_reference, completion: { (success, data) in
+                self.view.isUserInteractionEnabled = true
+                //self.hideLoadingView()
+                if data != nil {
+                    self.positionImageView.image = UIImage(data: data!)
+                }
+            })
+        }
+        
+        ApiFunctions.getPlaceDetails(currentPub.pub_placeid) { (success, pub) in
+            if success{
+                self.currentPub = pub!
+                
+                self.addressLabel.text = pub!.pub_vicinity
+                self.openTimeLabel.text = pub?.getOpenhourString()
+                self.pubNameLabel.text = pub!.pub_name
+            }
+        }
+    }
 
 }

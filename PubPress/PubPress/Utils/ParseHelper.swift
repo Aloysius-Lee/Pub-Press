@@ -63,7 +63,16 @@ class ParseHelper {
         pub.pub_latitude = location[Constants.KEY_PUB_LAT].nonNullDoubleValue
         pub.pub_longitude = location[Constants.KEY_PUB_LON].nonNullDoubleValue
         let openingHours = rawData[Constants.KEY_PUB_OPENINGHOURS]
-        pub.pub_opennow = openingHours[Constants.KEY_PUB_OPENNOW].nonNullBoolValue
+        pub.pub_opennow = openingHours[Constants.KEY_PUB_OPENNOW].nonNullBoolValue        
+        let weekdayTextArray = openingHours[Constants.KEY_PUB_WEEKDAY_TEXT].arrayValue
+        for weekdayObject in weekdayTextArray {
+            pub.pub_openhours.append(weekdayObject.nonNullStringValue)
+        }
+        let photoObject = rawData[Constants.KEY_PUB_PHOTOS].arrayValue
+        if photoObject.count > 0{
+            pub.photo_reference = photoObject[0][Constants.KEY_PUB_PHOTOREFERENCE].nonNullStringValue
+        }
+        
         
         return pub
         

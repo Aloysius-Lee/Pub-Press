@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-P2-OBK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-P2-OBK">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -259,8 +258,8 @@
                                                     <constraint firstAttribute="width" secondItem="tIv-h3-x98" secondAttribute="height" id="eE6-5K-pfF"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="91-93 Marchmont St. Kings Cross, London WC1N 1AL, UK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zs-nk-uv8">
-                                                <rect key="frame" x="30" y="9" width="188.5" height="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zs-nk-uv8">
+                                                <rect key="frame" x="30" y="14" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="7"/>
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,8 +285,8 @@
                                                     <constraint firstAttribute="width" secondItem="uKc-Fq-JsL" secondAttribute="height" id="cWa-Wi-TIa"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open now: 11:30AM - 11:30 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-Gk-jfY">
-                                                <rect key="frame" x="30" y="9" width="105.5" height="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-Gk-jfY">
+                                                <rect key="frame" x="30" y="14" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="7"/>
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,8 +312,8 @@
                                                     <constraint firstAttribute="width" secondItem="CQy-sV-q3e" secondAttribute="height" id="tSG-Rs-Qlz"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheapest Bear Carling @ £3.20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0j-fx-TDw">
-                                                <rect key="frame" x="30" y="9" width="104" height="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0j-fx-TDw">
+                                                <rect key="frame" x="30" y="14" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="7"/>
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,15 +337,23 @@
                                         <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPd-tD-eRu">
+                                        <rect key="frame" x="81.5" y="21" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.42745098039215684" green="0.81176470588235294" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="TPd-tD-eRu" firstAttribute="leading" secondItem="IYb-CJ-YBk" secondAttribute="trailing" constant="8" id="2ks-dF-5lO"/>
                                     <constraint firstItem="h6M-I8-r7q" firstAttribute="leading" secondItem="nCQ-8L-JGd" secondAttribute="leading" id="33b-oa-zca"/>
                                     <constraint firstItem="BLf-XZ-kQF" firstAttribute="top" secondItem="c8b-RF-tFH" secondAttribute="bottom" id="7tv-Qg-LFJ"/>
                                     <constraint firstItem="c8b-RF-tFH" firstAttribute="leading" secondItem="h6M-I8-r7q" secondAttribute="trailing" id="9IB-TK-n9S"/>
                                     <constraint firstAttribute="trailing" secondItem="46e-4y-WDp" secondAttribute="trailing" id="Hep-tg-dWg"/>
                                     <constraint firstItem="46e-4y-WDp" firstAttribute="top" secondItem="IYb-CJ-YBk" secondAttribute="bottom" constant="3" id="JC7-d1-MX6"/>
                                     <constraint firstItem="c8b-RF-tFH" firstAttribute="top" secondItem="46e-4y-WDp" secondAttribute="bottom" id="O50-pM-U8A"/>
+                                    <constraint firstItem="TPd-tD-eRu" firstAttribute="centerY" secondItem="IYb-CJ-YBk" secondAttribute="centerY" id="TZJ-3V-aIJ"/>
                                     <constraint firstAttribute="bottom" secondItem="h6M-I8-r7q" secondAttribute="bottom" id="Uof-gA-Qog"/>
                                     <constraint firstItem="BLf-XZ-kQF" firstAttribute="leading" secondItem="h6M-I8-r7q" secondAttribute="trailing" id="Vla-Sq-2pZ"/>
                                     <constraint firstItem="46e-4y-WDp" firstAttribute="top" secondItem="h6M-I8-r7q" secondAttribute="top" id="ZB3-ww-oXg"/>
@@ -358,15 +365,15 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QC4-Kw-6Ru">
-                                <rect key="frame" x="106" y="377" width="108" height="108"/>
+                                <rect key="frame" x="118" y="377" width="84" height="84"/>
                                 <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QC4-Kw-6Ru" secondAttribute="height" id="69k-Ne-ehO"/>
-                                    <constraint firstAttribute="width" constant="108" id="fTu-tE-P7t"/>
+                                    <constraint firstAttribute="width" constant="84" id="fTu-tE-P7t"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="54"/>
+                                        <integer key="value" value="42"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -375,9 +382,9 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_beer" translatesAutoresizingMaskIntoConstraints="NO" id="rhk-0F-Hj7">
-                                <rect key="frame" x="125" y="396" width="70" height="70"/>
+                                <rect key="frame" x="130" y="389" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="MuL-ep-3Qh"/>
+                                    <constraint firstAttribute="width" constant="60" id="MuL-ep-3Qh"/>
                                     <constraint firstAttribute="width" secondItem="rhk-0F-Hj7" secondAttribute="height" id="QCP-LU-vWU"/>
                                 </constraints>
                             </imageView>
@@ -407,12 +414,14 @@
                         <outlet property="cheapestBeerLabel" destination="h0j-fx-TDw" id="IKz-cG-b6q"/>
                         <outlet property="contentView" destination="DzR-g3-R89" id="Guk-KV-sj8"/>
                         <outlet property="openTimeLabel" destination="cum-Gk-jfY" id="Yb8-I8-MB2"/>
+                        <outlet property="positionImageView" destination="h6M-I8-r7q" id="z9T-hI-WUF"/>
                         <outlet property="profileView" destination="nCQ-8L-JGd" id="D0s-u4-YWY"/>
+                        <outlet property="pubNameLabel" destination="TPd-tD-eRu" id="jVt-Ny-J0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uS2-9i-clT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693.60000000000002" y="-25.637181409295355"/>
+            <point key="canvasLocation" x="691.875" y="-26.408450704225352"/>
         </scene>
     </scenes>
     <resources>

@@ -65,7 +65,7 @@ class MapViewController: BaseViewController {
     
     func getNearbyPubs() {
         
-        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 1609.00 * 5, completion: {
+        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 1609, completion: {
             success, pubs in
             if success {
                 self.nearMePubs = pubs
@@ -143,12 +143,9 @@ extension MapViewController: MKMapViewDelegate{
         let starbucksAnnotation = view.annotation as! StarbuckAnnotation
         let pub = starbucksAnnotation.pub
         let rootVC = self.parent?.parent?.parent as! RootViewController
-        rootVC.addressLabel.text = pub.pub_vicinity
-        if pub.pub_opennow {
-            rootVC.openTimeLabel.text = "Opened now"
-        }
-        else{
-            rootVC.openTimeLabel.text = "Not opened now"
+        if pub.pub_placeid != rootVC.currentPub.pub_placeid{
+            rootVC.currentPub = pub
+            rootVC.setPubView()
         }
         
     }

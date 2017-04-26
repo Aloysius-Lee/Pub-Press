@@ -49,18 +49,50 @@ class CommonUtils: AnyObject{
     static func getRandomNumber(_ maxValue : Int) -> Int{
         return Int(arc4random_uniform(UInt32(maxValue)))
     }
-    
+    /*
     static func getDistance(location1 : (Double, Double) , location2 : (Double, Double)) -> Double{
         var distance : Double = 0
         return distance
     }
-    
+    */
     
     static func getDistanceFromMe(_ user: UserModel) -> Double{
         let mylocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
         let userlocaiton = CLLocation(latitude: user.user_latitude, longitude: user.user_longitude)
         return mylocation.distance(from: userlocaiton) / 1609.344
     }
+    
+    static func getWeekDayString(_ weekday: Int) -> String{
+        var result = ""
+        switch weekday {
+        case 0:
+            result = "Monday"
+            break
+        case 1:
+            result = "Tuesday"
+            break
+        case 2:
+            result = "Wednesday"
+            break
+        case 3:
+            result = "Thursday"
+            break
+        case 4:
+            result = "Friday"
+            break
+        case 5:
+            result = "Saturday"
+            break
+        case 6:
+            result = "Sunday"
+            
+        default:
+            break
+        }
+        return result
+    }
+    
+    
     
     
 
