@@ -10,28 +10,29 @@
 import UIKit
 import SDWebImage
 import MapKit
-
+import GoogleMaps
 
 class MapViewController: BaseViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var profileIamgeView: UIImageView!
-    
     var userImage : UIImage!
-    
     var nearMePubs : [PubModel] = []
-    
     var selectedPub = PubModel()
+    var isViewApppeared = false
+    
     
     //let dataProvider = GoogleDataProvider()
     let searchRadius: Double = 1000
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         userImage = UIImage(named: "icon_profile")
         mapView.showsUserLocation = true
+        //mapView.s
         
 
     }
@@ -43,29 +44,13 @@ class MapViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         initMapView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : 1609.00 * 5, animated: true)
-        getNearbyPubs()
-        
-    }
-    
-    func initMapView()
-    {
-        mapView.removeAnnotations(mapView.annotations)
-        for overlay in mapView.overlays{
-            mapView.remove(overlay)
-        }
-        
-        //mapView.remove
-    }
-    
+        isViewApppeared = false
+    } 
     
     
     func getNearbyPubs() {
         
-        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 1609, completion: {
+        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 9000, completion: {
             success, pubs in
             if success {
                 self.nearMePubs = pubs
@@ -147,6 +132,8 @@ extension MapViewController: MKMapViewDelegate{
             rootVC.currentPub = pub
             rootVC.setPubView()
         }
+        selectedPub = pub
+        showDirection()
         
     }
     
@@ -159,6 +146,63 @@ extension MapViewController: MKMapViewDelegate{
             }
             view.layer.masksToBounds = true
         }
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        polylineRenderer.strokeColor = UIColor.blue
+        polylineRenderer.fillColor = UIColor.red
+        polylineRenderer.lineWidth = 2
+        return polylineRenderer
+        
+        
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        currentLatitude = userLocation.coordinate.latitude
+        currentLongitude = userLocation.coordinate.longitude
+        if !isViewApppeared {
+            getNearbyPubs()
+            isViewApppeared = true
+            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : 1609.00 * 5, animated: true)
+        }
+    }
+    
+    
+    func initMapView()
+    {
+        mapView.removeAnnotations(mapView.annotations)
+        for overlay in mapView.overlays{
+            mapView.remove(overlay)
+        }
+        
+    }
+    
+    func showDirection() {
+        
+        //CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+        for overlay in mapView.overlays{
+            mapView.remove(overlay)
+        }
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: selectedPub.pub_latitude, longitude: selectedPub.pub_longitude), addressDictionary: nil))
+        request.requestsAlternateRoutes = false
+        request.transportType = .walking
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+            
+            for route in unwrappedResponse.routes {
+                self.mapView.add(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+        
     }
     
     

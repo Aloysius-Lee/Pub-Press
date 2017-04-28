@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 
 class ApiFunctions{
@@ -16,10 +17,11 @@ class ApiFunctions{
     static let SERVER_URL                  = "http://35.164.51.96/index.php/Api/"
     
     
-    static let REQ_GETNEARBYPUBS           = SERVER_URL + "getNearByPubs"
+    static let REQ_GETNEARBYPUBS            = SERVER_URL + "getNearByPubs"
     static let REQ_GOOGLESEARCH             = SERVER_URL + "getGoogleSearch"
     static let REQ_GETPLACEDETAILS          = SERVER_URL + "getPlaceDetails"
     static let REQ_GETGOOGLEPHOTOES         = SERVER_URL + "getGooglePhotoes"
+    static let REQ_GETDIRECTION             = SERVER_URL + "getDirection"
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         
@@ -86,4 +88,23 @@ class ApiFunctions{
             }
         }
     }
+    /*
+    static func getDirection(origin: CLLocationCoordinate2D, to: CLLocationCoordinate2D, completion: @escaping (Bool) -> ()) {
+        let params = ["originlat": origin.latitude,
+                      "originlng": origin.longitude,
+                      "destinationlat": to.latitude,
+                      "destinationlng": to.longitude,
+                      ]
+        
+        Alamofire.request(REQ_GETGOOGLEPHOTOES, method: .post, parameters: params).responseJSON { response in
+            if response.result.isSuccess
+            {
+                completion(true)
+                
+            }
+            else {
+                completion(false)
+            }
+        }
+    }*/
 }

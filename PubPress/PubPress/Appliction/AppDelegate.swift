@@ -9,8 +9,7 @@
 import UIKit
 
 import CoreLocation
-
-
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        /*
-        GMSServices.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")
-        GMSPlacesClient.provideAPIKey("AIzaSyBuLE5y4gd8JcIo7QHz4k8B2PH7RiRPZ08")*/
         
+        GMSServices.provideAPIKey(Constants.GOOGLEMAPKEY)
+        //PlacesClient.provideAPIKey(Constants.GOOGLEMAPKEY)
+        /*
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         updateTimer()
-        locationManager.requestLocation()
+        locationManager.requestLocation()*/
         return true
     }
 
@@ -55,14 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    
-    
-    
-    
-
-
 }
-
+/*
 extension AppDelegate : CLLocationManagerDelegate {
     //MARK: --- location functions
     
@@ -133,6 +126,7 @@ extension AppDelegate : CLLocationManagerDelegate {
 
 
 }
+*/
 
 //MARK: - current location
 

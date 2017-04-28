@@ -73,9 +73,7 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items:["1", "2"], delegate : self)
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: contentView)
         style()
-        if currentLatitude < -90{
-            self.view.isUserInteractionEnabled = false
-        }
+        //self.view.isUserInteractionEnabled = false
     }
     
     func style(){
@@ -90,14 +88,13 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
         else{
             setVC(0)
         }*/
-        if currentLatitude > -100{
+        
             if selectedVC == 0{
                 setVC(1)
             }
             else{
                 setVC(0)
             }
-        }
     }
 
     //Mark: - CarbonTabSwipeNavigation Delegate
