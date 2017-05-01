@@ -20,6 +20,15 @@ class UserModel {
     var user_latitude = 0.0
     var user_longitude = 0.0
     
+    
+    var user_cardname = ""
+    var user_cardnumber = ""
+    var user_expMonth: UInt = 0
+    var user_expYear: UInt = 0
+    var user_cvc    = ""
+    
+    
+    
 }
 
 

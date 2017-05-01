@@ -21,7 +21,9 @@ class PubModel {
     var pub_opennow             = false
     var photo_reference         = ""
     var pub_openhours: [String] = []
-    //var pub_openhours:[String]  = []
+    
+    var pub_products: [ProductModel] = []
+    
     
     func getOpenhourString() -> String {
         var result = ""

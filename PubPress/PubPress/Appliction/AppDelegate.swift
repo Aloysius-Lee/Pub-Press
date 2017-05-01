@@ -7,28 +7,26 @@
 //
 
 import UIKit
+import Stripe
 
 import CoreLocation
-import GoogleMaps
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
 
     let locationManager = CLLocationManager()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch.        
+        STPPaymentConfiguration.shared().publishableKey = StripeConstants.STRIPE_PUBLISH_KEY
         
-        GMSServices.provideAPIKey(Constants.GOOGLEMAPKEY)
-        //PlacesClient.provideAPIKey(Constants.GOOGLEMAPKEY)
-        /*
+        
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        updateTimer()
-        locationManager.requestLocation()*/
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         return true
     }
 
@@ -55,10 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-/*
+
 extension AppDelegate : CLLocationManagerDelegate {
     //MARK: --- location functions
-    
+   /*
     func updateTimer(){
         
         Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
@@ -67,7 +65,7 @@ extension AppDelegate : CLLocationManagerDelegate {
     func updateLocation()
     {
         locationManager.requestLocation()
-    }
+    }*/
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -126,8 +124,6 @@ extension AppDelegate : CLLocationManagerDelegate {
 
 
 }
-*/
-
 //MARK: - current location
 
 var currentLatitude = -100.0

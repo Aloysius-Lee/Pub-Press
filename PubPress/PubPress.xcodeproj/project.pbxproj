@@ -26,9 +26,14 @@
 		0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */; };
 		1AC27ECA2449FD3B10EEA36E /* Pods_PubPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */; };
 		E12DF95C1EA4C2AA0058ABED /* StripeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */; };
+		E180AFE01EB7DB4000A49529 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180AFDF1EB7DB4000A49529 /* ProductModel.swift */; };
+		E180AFE21EB7E3E600A49529 /* AddPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */; };
+		E180AFE41EB7E81100A49529 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180AFE31EB7E81100A49529 /* AddProductViewController.swift */; };
 		E1883EB61EA654EB00774E81 /* StarbuckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1883EB51EA654EB00774E81 /* StarbuckAnnotation.swift */; };
 		E1883EB81EA6569500774E81 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1883EB71EA6569500774E81 /* AnnotationView.swift */; };
 		E1883EBC1EA6754700774E81 /* SwiftyJSON+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1883EBB1EA6754700774E81 /* SwiftyJSON+Extension.swift */; };
+		E18CCFB01EB5DC9700C4842D /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CCFAF1EB5DC9700C4842D /* PaymentModel.swift */; };
+		E18CCFB31EB5E99C00C4842D /* PaymentStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CCFB21EB5E99C00C4842D /* PaymentStartViewController.swift */; };
 		E1AE2A2D1EA5650C001A7086 /* ApiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A2C1EA5650C001A7086 /* ApiFunctions.swift */; };
 		E1AE2A311EA5A66B001A7086 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A301EA5A66B001A7086 /* ParseHelper.swift */; };
 		E1AE2A331EA5A6A7001A7086 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A321EA5A6A7001A7086 /* PubModel.swift */; };
@@ -57,9 +62,14 @@
 		1074396C1BAC56E2CF8CF0A3 /* Pods-PubPress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.debug.xcconfig"; sourceTree = "<group>"; };
 		7A8DEC4378014462FD700D01 /* Pods-PubPress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.release.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.release.xcconfig"; sourceTree = "<group>"; };
 		E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeConstants.swift; sourceTree = "<group>"; };
+		E180AFDF1EB7DB4000A49529 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPubViewController.swift; sourceTree = "<group>"; };
+		E180AFE31EB7E81100A49529 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		E1883EB51EA654EB00774E81 /* StarbuckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbuckAnnotation.swift; sourceTree = "<group>"; };
 		E1883EB71EA6569500774E81 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		E1883EBB1EA6754700774E81 /* SwiftyJSON+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyJSON+Extension.swift"; sourceTree = "<group>"; };
+		E18CCFAF1EB5DC9700C4842D /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		E18CCFB21EB5E99C00C4842D /* PaymentStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStartViewController.swift; sourceTree = "<group>"; };
 		E1AE2A2C1EA5650C001A7086 /* ApiFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFunctions.swift; sourceTree = "<group>"; };
 		E1AE2A301EA5A66B001A7086 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		E1AE2A321EA5A6A7001A7086 /* PubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
@@ -127,6 +137,9 @@
 				0A38866F1E982ADC003C2A4D /* LandingViewController.swift */,
 				0A3886731E982B47003C2A4D /* MapViewController.swift */,
 				0A3886751E982B5C003C2A4D /* ProfileSettingViewController.swift */,
+				E18CCFB11EB5E98600C4842D /* Payment */,
+				E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */,
+				E180AFE31EB7E81100A49529 /* AddProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +149,8 @@
 			children = (
 				0A3886641E98292A003C2A4D /* UserModel.swift */,
 				E1AE2A321EA5A6A7001A7086 /* PubModel.swift */,
+				E18CCFAF1EB5DC9700C4842D /* PaymentModel.swift */,
+				E180AFDF1EB7DB4000A49529 /* ProductModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,7 +170,6 @@
 			children = (
 				E1AE2A2F1EA584F2001A7086 /* Common */,
 				E1AE2A2E1EA584EB001A7086 /* Api */,
-				0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */,
 				E12DF95D1EA4C2AF0058ABED /* Stripe Helper */,
 			);
 			path = Utils;
@@ -207,6 +221,7 @@
 		E12DF95D1EA4C2AF0058ABED /* Stripe Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */,
 				E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */,
 			);
 			name = "Stripe Helper";
@@ -220,6 +235,14 @@
 			);
 			name = View;
 			path = Model/View;
+			sourceTree = "<group>";
+		};
+		E18CCFB11EB5E98600C4842D /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				E18CCFB21EB5E99C00C4842D /* PaymentStartViewController.swift */,
+			);
+			name = Payment;
 			sourceTree = "<group>";
 		};
 		E1AE2A2E1EA584EB001A7086 /* Api */ = {
@@ -381,6 +404,7 @@
 				0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */,
 				0A3886701E982ADC003C2A4D /* LandingViewController.swift in Sources */,
 				0A38866B1E9829BD003C2A4D /* CommonUtils.swift in Sources */,
+				E18CCFB01EB5DC9700C4842D /* PaymentModel.swift in Sources */,
 				0A3886651E98292A003C2A4D /* UserModel.swift in Sources */,
 				0A3886741E982B47003C2A4D /* MapViewController.swift in Sources */,
 				E12DF95C1EA4C2AA0058ABED /* StripeConstants.swift in Sources */,
@@ -388,12 +412,16 @@
 				E1883EB81EA6569500774E81 /* AnnotationView.swift in Sources */,
 				0A3886671E9829A3003C2A4D /* Constants.swift in Sources */,
 				0A3886761E982B5C003C2A4D /* ProfileSettingViewController.swift in Sources */,
+				E18CCFB31EB5E99C00C4842D /* PaymentStartViewController.swift in Sources */,
 				E1883EBC1EA6754700774E81 /* SwiftyJSON+Extension.swift in Sources */,
 				E1AE2A311EA5A66B001A7086 /* ParseHelper.swift in Sources */,
 				0A3886721E982B0E003C2A4D /* RootViewController.swift in Sources */,
+				E180AFE41EB7E81100A49529 /* AddProductViewController.swift in Sources */,
+				E180AFE21EB7E3E600A49529 /* AddPubViewController.swift in Sources */,
 				0A38866E1E982AAE003C2A4D /* BaseViewController.swift in Sources */,
 				E1883EB61EA654EB00774E81 /* StarbuckAnnotation.swift in Sources */,
 				0A38867F1E9838C0003C2A4D /* UIView+Extensions.swift in Sources */,
+				E180AFE01EB7DB4000A49529 /* ProductModel.swift in Sources */,
 				E1AE2A2D1EA5650C001A7086 /* ApiFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

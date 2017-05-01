@@ -10,7 +10,6 @@
 import UIKit
 import SDWebImage
 import MapKit
-import GoogleMaps
 
 class MapViewController: BaseViewController {
 
@@ -31,8 +30,9 @@ class MapViewController: BaseViewController {
         super.viewDidLoad()
 
         userImage = UIImage(named: "icon_profile")
+        
         mapView.showsUserLocation = true
-        //mapView.s
+        
         
 
     }
@@ -44,8 +44,16 @@ class MapViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         initMapView()
-        isViewApppeared = false
-    } 
+        if currentLatitude == -100{
+            isViewApppeared = false
+        }
+        else {
+            getNearbyPubs()
+            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : 1609.00 * 5, animated: true)
+            
+        }
+        
+    }
     
     
     func getNearbyPubs() {

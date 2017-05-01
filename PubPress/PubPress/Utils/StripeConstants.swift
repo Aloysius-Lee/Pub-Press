@@ -14,4 +14,8 @@ class StripeConstants {
     //stripe test account info
     static let STRIPE_PUBLISH_KEY           = "pk_test_R0Ujo2KZJLU0mIWoFz4MIgYf"
     static let STRIPE_SECRET_KEY            = "sk_test_5Pjf0HAeANzOue6W9HaPXZ5t"
+    
+    static let STRIPE_RETURN_URL            = "payments-example://stripe-redirect"
+    
+    static let STRIPE_BACKEND_BASEURL       = "https://pub-press.herokuapp.com/"
 }

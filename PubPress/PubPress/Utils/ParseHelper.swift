@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ParseHelper {
     
-    static func parsePub(_ rawData: JSON) -> PubModel {
+    static func parseGooglePub(_ rawData: JSON) -> PubModel {
     
         //Pub result json
         /*

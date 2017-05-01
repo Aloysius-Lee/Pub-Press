@@ -45,7 +45,7 @@ class ApiFunctions{
                 var locations : [PubModel] = []
                 let locationsJSON = json[Constants.KEY_GOOGLE_RESULT].arrayValue
                 for locationJSON in locationsJSON {
-                    locations.append(ParseHelper.parsePub(locationJSON))
+                    locations.append(ParseHelper.parseGooglePub(locationJSON))
                 }
                 completion(true, locations)
                 
@@ -64,7 +64,7 @@ class ApiFunctions{
             {
                 let json = JSON(response.result.value!)
                 let locationJSON = json[Constants.KEY_GOOGLE_RESULT]["result"]
-                completion(true, ParseHelper.parsePub(locationJSON))
+                completion(true, ParseHelper.parseGooglePub(locationJSON))
                 
             }
             else {
@@ -107,4 +107,9 @@ class ApiFunctions{
             }
         }
     }*/
+    
+    
+    static func registerPub() {
+        
+    }
 }

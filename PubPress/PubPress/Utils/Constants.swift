@@ -14,7 +14,7 @@ class Constants {
     
     //google map key
     
-    static let GOOGLEMAPKEY                 = "AIzaSyBJILF4L98DGEXplgLHP1pIdQrdbQ08skI"
+    //static let GOOGLEMAPKEY                 = "AIzaSyBJILF4L98DGEXplgLHP1pIdQrdbQ08skI"
     //error messages 
     
     static let CHECK_EMAIL_EMPTY            = "Please input your email"
