@@ -22,6 +22,10 @@ class ApiFunctions{
     static let REQ_GETPLACEDETAILS          = SERVER_URL + "getPlaceDetails"
     static let REQ_GETGOOGLEPHOTOES         = SERVER_URL + "getGooglePhotoes"
     static let REQ_GETDIRECTION             = SERVER_URL + "getDirection"
+    static let REQ_REGISTERPUB              = SERVER_URL + "registerPub"
+    static let REQ_REGISTERUSER             = SERVER_URL + "registerUser"
+    static let REQ_UPLOADIMAGE              = SERVER_URL + "uploadImage"
+    static let REQ_ADDPRODUCT               = SERVER_URL + "addProduct"
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         
@@ -109,7 +113,16 @@ class ApiFunctions{
     }*/
     
     
-    static func registerPub() {
+    static func registerPub(_ pub: PubModel, completion: @escaping (String, PubModel) -> ()) {
         
     }
+    
+    static func addProduct(pubid: Int64, product: ProductModel,completion: @escaping (String, ProductModel) -> ()) {
+        
+    }
+    
+    static func uploadImage(imageData: Data, completion: @escaping (String, String) -> () ) {
+        
+    }
+    
 }

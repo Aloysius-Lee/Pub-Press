@@ -11,7 +11,6 @@ import UIKit
 
 class Constants {
     
-    
     //google map key
     
     //static let GOOGLEMAPKEY                 = "AIzaSyBJILF4L98DGEXplgLHP1pIdQrdbQ08skI"
@@ -30,8 +29,7 @@ class Constants {
     
     //user model
     static let KEY_USER_ID                  = "user_id"
-    static let KEY_USER_FIRSTNAME           = "user_firstname"
-    static let KEY_USER_LASTNAME            = "user_lastname"
+    static let KEY_USER_NAME                = "user_name"
     static let KEY_USER_EMAIL               = "user_email"
     static let KEY_USER_PASSWORD            = "user_password"
     

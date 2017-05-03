@@ -23,7 +23,7 @@ class MapViewController: BaseViewController {
     
     
     //let dataProvider = GoogleDataProvider()
-    let searchRadius: Double = 1000
+    var searchRadius: Double = 1609.00
     
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class MapViewController: BaseViewController {
         }
         else {
             getNearbyPubs()
-            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : 1609.00 * 5, animated: true)
+            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : searchRadius, animated: true)
             
         }
         
@@ -58,7 +58,7 @@ class MapViewController: BaseViewController {
     
     func getNearbyPubs() {
         
-        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: 9000, completion: {
+        ApiFunctions.getNearByPubs(latitude: currentLatitude, longitude: currentLongitude, radius: searchRadius, completion: {
             success, pubs in
             if success {
                 self.nearMePubs = pubs
@@ -174,8 +174,14 @@ extension MapViewController: MKMapViewDelegate{
         if !isViewApppeared {
             getNearbyPubs()
             isViewApppeared = true
-            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : 1609.00 * 5, animated: true)
+            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), spanRadius : searchRadius, animated: true)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        /*if searchRadius !=
+        searchRadius = mapView.visibleMapRect.size.width*/
+        
     }
     
     

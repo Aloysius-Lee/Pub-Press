@@ -54,7 +54,7 @@ class ParseHelper {
         
         let pub = PubModel()        
         pub.pub_id = rawData[Constants.KEY_PUB_ID].nonNullStringValue
-        pub.pub_iconurl = rawData[Constants.KEY_PUB_ICON].nonNullStringValue
+        //pub.pub_iconurl = rawData[Constants.KEY_PUB_ICON].nonNullStringValue
         pub.pub_placeid = rawData[Constants.KEY_PUB_PLACE_ID].nonNullStringValue
         pub.pub_vicinity = rawData[Constants.KEY_PUB_VINICITY].nonNullStringValue
         pub.pub_name = rawData[Constants.KEY_PUB_NAME].nonNullStringValue

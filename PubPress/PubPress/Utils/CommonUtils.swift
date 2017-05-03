@@ -55,12 +55,12 @@ class CommonUtils: AnyObject{
         return distance
     }
     */
-    
+    /*
     static func getDistanceFromMe(_ user: UserModel) -> Double{
         let mylocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
-        let userlocaiton = CLLocation(latitude: user.user_latitude, longitude: user.user_longitude)
-        return mylocation.distance(from: userlocaiton) / 1609.344
-    }
+        //let userlocaiton = CLLocation(latitude: user.user_latitude, longitude: user.user_longitude)
+        return mylocation.distance(from: mylocation) / 1609.344
+    }*/
     
     static func getWeekDayString(_ weekday: Int) -> String{
         var result = ""

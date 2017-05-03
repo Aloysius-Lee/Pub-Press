@@ -8,6 +8,7 @@
 
 import UIKit
 import CarbonKit
+import Toast_Swift
 
 class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
 
@@ -124,13 +125,16 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
             openTimeLabel.text = "Close now"
         }
         pubNameLabel.text = currentPub.pub_name
-        
+        self.positionImageView.image = UIImage(named: "image_beer_cup")
         if currentPub.photo_reference.characters.count > 0{
             //showLoadingView()
             self.view.isUserInteractionEnabled = false
+            self.positionImageView.startAnimating()
             ApiFunctions.getGooglePhotoes(currentPub.photo_reference, completion: { (success, data) in
                 self.view.isUserInteractionEnabled = true
                 //self.hideLoadingView()
+                
+                self.positionImageView.stopAnimating()
                 if data != nil {
                     self.positionImageView.image = UIImage(data: data!)
                 }

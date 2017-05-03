@@ -73,7 +73,7 @@ extension AppDelegate : CLLocationManagerDelegate {
         
         currentLatitude = (location?.coordinate.latitude)! as Double
         currentLongitude = (location?.coordinate.longitude)! as Double
-        let currentVC = window?.rootViewController as! UINavigationController
+        /*let currentVC = window?.rootViewController as! UINavigationController
         let rootVC = currentVC.viewControllers[0]
         rootVC.view.isUserInteractionEnabled = true
         if(currentUser.user_id > 0){
@@ -113,7 +113,7 @@ extension AppDelegate : CLLocationManagerDelegate {
              })*/
             
             
-        }
+        }*/
         manager.stopUpdatingLocation()
     }
     
