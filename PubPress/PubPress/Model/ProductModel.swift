@@ -10,9 +10,9 @@ import Foundation
 
 
 class ProductModel {
-    var product_id : Int64                  = 0
+    var product_id                          = ""
     var product_name                        = ""
-    var product_type                        = 0
-    var product_price                       = 0.0
+    var product_type                        = ""
+    var product_price                       = ""
     
 }
