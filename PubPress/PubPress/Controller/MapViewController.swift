@@ -32,6 +32,7 @@ class MapViewController: BaseViewController {
         userImage = UIImage(named: "icon_profile")
         
         mapView.showsUserLocation = true
+        mapView.showsScale = true
         
         
 
