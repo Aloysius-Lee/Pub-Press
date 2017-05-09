@@ -27,6 +27,7 @@ class ApiFunctions{
     static let REQ_REGISTERUSER             = SERVER_URL + "registerUser"
     static let REQ_UPLOADIMAGE              = SERVER_URL + "uploadImage"
     static let REQ_REGISTERPRODUCT          = SERVER_URL + "registerProduct"
+    static let REQ_LOGIN                    = SERVER_URL + "login"
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         
@@ -215,7 +216,7 @@ class ApiFunctions{
                       Constants.KEY_USER_PASSWORD: user.user_password,
                       Constants.KEY_USER_PROFILEIMAGEURL: user.user_profileimageurl
             ] as [String: Any]
-        Alamofire.request(REQ_REGISTERPUB, method: .post, parameters: params).responseJSON { response in
+        Alamofire.request(REQ_REGISTERUSER, method: .post, parameters: params).responseJSON { response in
             if response.result.isSuccess
             {
                 let json = JSON(response.result.value!)
@@ -231,6 +232,37 @@ class ApiFunctions{
             }
             else {
                 completion(Constants.CHECK_NETWORK_ERROR, user)
+            }
+        }
+    }
+    
+    static func login(email: String, password: String, completion: @escaping (String, AnyObject) -> ()) {
+        let params = [
+                      Constants.KEY_USER_EMAIL: email,
+                      Constants.KEY_USER_PASSWORD: password
+            ]
+        Alamofire.request(REQ_LOGIN, method: .post, parameters: params).responseJSON { response in
+            if response.result.isSuccess
+            {
+                let json = JSON(response.result.value!)
+                
+                let message = json[Constants.RES_MESSAGE].stringValue
+                if message == Constants.PROCESS_SUCCESS {
+                    if json[Constants.KEY_USER_INFO].array != nil {
+                        let userObject = json[Constants.KEY_USER_INFO].arrayValue
+                        completion(Constants.PROCESS_SUCCESS, ParseHelper.parseUser(userObject[0]) as AnyObject)
+                    }
+                    else {
+                        let pubObject = json[Constants.KEY_PUB_INFO].arrayValue
+                        completion(Constants.PROCESS_SUCCESS, ParseHelper.parsePub(pubObject[0]) as AnyObject)
+                    }
+                }                
+                completion(message, "" as AnyObject)
+                
+                
+            }
+            else {
+                completion(Constants.CHECK_NETWORK_ERROR, "" as AnyObject)
             }
         }
     }

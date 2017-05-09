@@ -23,7 +23,7 @@ class MapViewController: BaseViewController {
     
     
     //let dataProvider = GoogleDataProvider()
-    var searchRadius: Double = 1609.00
+    var searchRadius: Double = 1609.00// * 5
     
     
     override func viewDidLoad() {

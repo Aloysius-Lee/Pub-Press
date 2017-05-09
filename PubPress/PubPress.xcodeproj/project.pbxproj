@@ -41,6 +41,9 @@
 		E1AE2A2D1EA5650C001A7086 /* ApiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A2C1EA5650C001A7086 /* ApiFunctions.swift */; };
 		E1AE2A311EA5A66B001A7086 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A301EA5A66B001A7086 /* ParseHelper.swift */; };
 		E1AE2A331EA5A6A7001A7086 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A321EA5A6A7001A7086 /* PubModel.swift */; };
+		E1D117751EC1AA300094AF53 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D117741EC1AA300094AF53 /* StartViewController.swift */; };
+		E1D117771EC1B0B10094AF53 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */; };
+		E1ED854C1EC1EC4900648140 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED854B1EC1EC4900648140 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +97,9 @@
 		E1AE2A2C1EA5650C001A7086 /* ApiFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFunctions.swift; sourceTree = "<group>"; };
 		E1AE2A301EA5A66B001A7086 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		E1AE2A321EA5A6A7001A7086 /* PubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
+		E1D117741EC1AA300094AF53 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		E1ED854B1EC1EC4900648140 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PubPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,13 +162,16 @@
 			isa = PBXGroup;
 			children = (
 				0A38866D1E982AAE003C2A4D /* BaseViewController.swift */,
-				0A3886711E982B0E003C2A4D /* RootViewController.swift */,
+				E1D117741EC1AA300094AF53 /* StartViewController.swift */,
 				0A38866F1E982ADC003C2A4D /* LandingViewController.swift */,
+				0A3886711E982B0E003C2A4D /* RootViewController.swift */,
 				0A3886731E982B47003C2A4D /* MapViewController.swift */,
 				0A3886751E982B5C003C2A4D /* ProfileSettingViewController.swift */,
 				E18CCFB11EB5E98600C4842D /* Payment */,
 				E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */,
 				E180AFE31EB7E81100A49529 /* AddProductViewController.swift */,
+				E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */,
+				E1ED854B1EC1EC4900648140 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,11 +460,14 @@
 				E1AE2A311EA5A66B001A7086 /* ParseHelper.swift in Sources */,
 				0A3886721E982B0E003C2A4D /* RootViewController.swift in Sources */,
 				E180AFE41EB7E81100A49529 /* AddProductViewController.swift in Sources */,
+				E1D117751EC1AA300094AF53 /* StartViewController.swift in Sources */,
 				E180AFE21EB7E3E600A49529 /* AddPubViewController.swift in Sources */,
 				0A38866E1E982AAE003C2A4D /* BaseViewController.swift in Sources */,
+				E1D117771EC1B0B10094AF53 /* RegisterUserViewController.swift in Sources */,
 				E1883EB61EA654EB00774E81 /* StarbuckAnnotation.swift in Sources */,
 				0A38867F1E9838C0003C2A4D /* UIView+Extensions.swift in Sources */,
 				E180AFE01EB7DB4000A49529 /* ProductModel.swift in Sources */,
+				E1ED854C1EC1EC4900648140 /* LoginViewController.swift in Sources */,
 				E1AE2A2D1EA5650C001A7086 /* ApiFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

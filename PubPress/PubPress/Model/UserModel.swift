@@ -27,6 +27,7 @@ class UserModel {
     var user_tier                       = ""
     var user_credits                    = ""
     var user_netpints                   = ""
+    var user_decadence                  = ""
     
     
     

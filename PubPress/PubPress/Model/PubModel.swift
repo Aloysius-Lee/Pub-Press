@@ -22,6 +22,8 @@ class PubModel {
     var photo_reference         = ""
     var pub_openhours: [String] = []
     var pub_imageurl            = ""
+    var pub_contactemail        = ""
+    var pub_contactpassword     = ""
     
     var pub_products: [ProductModel] = []
     

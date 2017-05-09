@@ -78,4 +78,22 @@ class ParseHelper {
         
     }
     
+    static func parsePub(_ rawData: JSON) -> UserModel{
+        let user = UserModel()
+        user.user_id = rawData[Constants.KEY_USER_ID].nonNullStringValue
+        user.user_name = rawData[Constants.KEY_USER_NAME].nonNullStringValue
+        user.user_profileimageurl = rawData[Constants.KEY_USER_PROFILEIMAGEURL].nonNullStringValue
+        user.user_decadence = rawData[Constants.KEY_USER_DECARDENCE].nonNullStringValue
+        user.user_tier = rawData[Constants.KEY_USER_TIER].nonNullStringValue
+        user.user_netpints = rawData[Constants.KEY_USER_NETPINTS].nonNullStringValue
+        user.user_credits = rawData[Constants.KEY_USER_CREDITS].nonNullStringValue
+        return user
+    }
+    
+    static func parseUser(_ rawData: JSON) -> PubModel{
+        let pub = PubModel()
+        //pub.pub_id =
+        return pub
+    }
+    
 }

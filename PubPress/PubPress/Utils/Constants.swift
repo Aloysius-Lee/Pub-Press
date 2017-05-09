@@ -21,6 +21,7 @@ class Constants {
     static let CHECK_EMAIL_INVALID          = "Please input valid email"
     static let CHECK_NETWORK_ERROR          = "Network error!"
     static let CHECK_ENCODING_ERROR         = "Encoding error!"
+    static let CHECK_NAME_EMPTY             = "Please input your name"
     
     
     //PROCESS VALUES
@@ -30,16 +31,24 @@ class Constants {
     
     static let RES_MESSAGE                  = "message"
     
-    
+    static let KEY_EMAIL                    = "email"
+    static let KEY_PASSWORD                 = "password"
     
     //static let PROCESS_
     
     //user model
+    
+    static let KEY_USER_INFO                = "userInfo"
+    
     static let KEY_USER_ID                  = "user_id"
     static let KEY_USER_NAME                = "user_name"
     static let KEY_USER_EMAIL               = "user_email"
     static let KEY_USER_PASSWORD            = "user_password"
     static let KEY_USER_PROFILEIMAGEURL     = "user_profileimageurl"
+    static let KEY_USER_DECARDENCE          = "user_decadence"
+    static let KEY_USER_TIER                = "user_tier"
+    static let KEY_USER_NETPINTS            = "user_netpints"
+    static let KEY_USER_CREDITS             = "user_credits"
     
     //pub model keys
     
@@ -60,6 +69,7 @@ class Constants {
     
     
     //pub model keys from backend
+    static let KEY_PUB_INFO                 = "pubInfo"
     
     static let KEY_PUB_ID_B                 = "pub_id"
     static let KEY_PUB_NAME_B               = "pub_name"
