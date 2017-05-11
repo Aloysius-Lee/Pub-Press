@@ -238,8 +238,8 @@ class ApiFunctions{
     
     static func login(email: String, password: String, completion: @escaping (String, AnyObject) -> ()) {
         let params = [
-                      Constants.KEY_USER_EMAIL: email,
-                      Constants.KEY_USER_PASSWORD: password
+                      Constants.KEY_EMAIL: email,
+                      Constants.KEY_PASSWORD: password
             ]
         Alamofire.request(REQ_LOGIN, method: .post, parameters: params).responseJSON { response in
             if response.result.isSuccess
@@ -256,8 +256,10 @@ class ApiFunctions{
                         let pubObject = json[Constants.KEY_PUB_INFO].arrayValue
                         completion(Constants.PROCESS_SUCCESS, ParseHelper.parsePub(pubObject[0]) as AnyObject)
                     }
-                }                
-                completion(message, "" as AnyObject)
+                }
+                else {
+                    completion(message, "" as AnyObject)
+                }
                 
                 
             }

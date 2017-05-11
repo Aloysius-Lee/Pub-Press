@@ -46,8 +46,31 @@ class LoginViewController: BaseViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         let message = checkValid()
+        
         if message == Constants.PROCESS_SUCCESS {
-            //ApiFunctions
+            showLoadingView()
+            ApiFunctions.login(email: emailTextField.text!, password: passwordTextField.text!, completion: {
+                message, object in
+                self.hideLoadingView()
+                if message == Constants.PROCESS_SUCCESS {
+                    if object.isKind(of: UserModel.self) {
+                        currentUser = object as! UserModel
+                    }
+                    else {
+                        currentPub = object as! PubModel
+                    }
+                    
+                    UserDefaults.standard.set(self.emailTextField.text!, forKey: Constants.KEY_EMAIL)
+                    UserDefaults.standard.set(self.passwordTextField.text!, forKey: Constants.KEY_PASSWORD)
+                    let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
+                    self.navigationController?.viewControllers = [rootVC!]
+                }
+                else {
+                    self.showToastWithDuration(string: message, duration: 3.0)
+                }
+                
+                
+            })
         }
         else {
             showToastWithDuration(string: message, duration: 3.0)

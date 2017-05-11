@@ -14,6 +14,9 @@ class StartViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if UserDefaults.standard.value(forKey: Constants.KEY_EMAIL) != nil {
+            loginWithExistingAccount()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,31 @@ class StartViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func loginWithExistingAccount() {
+        let email = UserDefaults.standard.value(forKey: Constants.KEY_EMAIL) as! String
+        let password = UserDefaults.standard.value(forKey: Constants.KEY_PASSWORD) as! String
+        showLoadingView()
+        ApiFunctions.login(email: email, password: password, completion: {
+            message, object in
+            self.hideLoadingView()
+            if message == Constants.PROCESS_SUCCESS {
+                if object.isKind(of: UserModel.self) {
+                    currentUser = object as! UserModel
+                }
+                else {
+                    currentPub = object as! PubModel
+                }
+                
+                let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
+                self.navigationController?.viewControllers = [rootVC!]
+            }
+            else {
+                self.showToastWithDuration(string: message, duration: 3.0)
+            }
+            
+        })
+    }
 
     /*
     // MARK: - Navigation
@@ -37,6 +65,8 @@ class StartViewController: BaseViewController {
     }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {

@@ -66,6 +66,8 @@ class Constants {
     static let KEY_PUB_PHOTOS               = "photos"
     static let KEY_PUB_PHOTOREFERENCE       = "photo_reference"
     static let KEY_PUB_WEEKDAY_TEXT         = "weekday_text"
+    static let KEY_PUB_PHONENUMBER          = "formatted_phone_number"
+    static let KEY_PUB_ADDRESS              = "formatted_address"
     
     
     //pub model keys from backend
@@ -99,3 +101,5 @@ class Constants {
     
     
 }
+
+var searchRadius                            = 1609.3

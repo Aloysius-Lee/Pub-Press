@@ -24,6 +24,8 @@ class PubModel {
     var pub_imageurl            = ""
     var pub_contactemail        = ""
     var pub_contactpassword     = ""
+    var pub_formatted_phone_number         = ""
+    var pub_formatted_address   = ""
     
     var pub_products: [ProductModel] = []
     
@@ -52,3 +54,5 @@ class PubModel {
         return result
     }
 }
+
+var currentPub = PubModel()

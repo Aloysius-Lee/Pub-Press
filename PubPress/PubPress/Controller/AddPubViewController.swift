@@ -12,10 +12,13 @@ class AddPubViewController: BaseViewController {
     
     var pub: PubModel!
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nameLabel.text = pub.pub_name
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +32,11 @@ class AddPubViewController: BaseViewController {
     }
     
     
+    @IBAction func getGoogleDataButtonTapped(_ sender: Any) {
+        searchRadius = 300
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewController")
+        self.navigationController?.pushViewController(mapVC!, animated: true)
+    }
 
 
 }

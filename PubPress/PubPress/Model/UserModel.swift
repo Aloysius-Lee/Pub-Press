@@ -24,10 +24,11 @@ class UserModel {
     var user_expYear: UInt              = 0
     var user_cvc                        = ""
     
-    var user_tier                       = ""
-    var user_credits                    = ""
-    var user_netpints                   = ""
-    var user_decadence                  = ""
+    var user_tier                       = "0"
+    var user_credits                    = "0"
+    var user_netpints                   = "0"
+    var user_decadence                  = "0"
+    
     
     
     

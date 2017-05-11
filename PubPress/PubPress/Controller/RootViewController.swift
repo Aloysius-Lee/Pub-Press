@@ -145,7 +145,7 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
             if success{
                 self.currentPub = pub!
                 
-                self.addressLabel.text = pub!.pub_vicinity
+                self.addressLabel.text = pub!.pub_formatted_address
                 self.openTimeLabel.text = pub?.getOpenhourString()
                 self.pubNameLabel.text = pub!.pub_name
             }

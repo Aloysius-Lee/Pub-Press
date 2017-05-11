@@ -9,7 +9,7 @@ target 'PubPress' do
 pod 'Alamofire'
 pod 'SDWebImage'
 pod 'SwiftyJSON'
-pod 'Toast-Swift', '~> 2.0.0'
+pod 'Toast-Swift'
 pod 'CarbonKit'
 pod 'Material'
 pod 'Stripe'
