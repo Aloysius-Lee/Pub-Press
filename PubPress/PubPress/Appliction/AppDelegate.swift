@@ -8,7 +8,6 @@
 
 import UIKit
 import Stripe
-
 import CoreLocation
 
 @UIApplicationMain
@@ -22,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         STPPaymentConfiguration.shared().publishableKey = StripeConstants.STRIPE_PUBLISH_KEY
         
         
-        
+		
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -56,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 extension AppDelegate : CLLocationManagerDelegate {
     //MARK: --- location functions
-   /*
+	
     func updateTimer(){
         
         Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
@@ -65,7 +64,7 @@ extension AppDelegate : CLLocationManagerDelegate {
     func updateLocation()
     {
         locationManager.requestLocation()
-    }*/
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -127,5 +126,5 @@ extension AppDelegate : CLLocationManagerDelegate {
 //MARK: - current location
 
 var currentLatitude = -100.0
-var currentLongitude = 0.0
+var currentLongitude = -100.0
 

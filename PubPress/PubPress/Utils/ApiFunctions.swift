@@ -28,6 +28,7 @@ class ApiFunctions{
     static let REQ_UPLOADIMAGE              = SERVER_URL + "uploadImage"
     static let REQ_REGISTERPRODUCT          = SERVER_URL + "registerProduct"
     static let REQ_LOGIN                    = SERVER_URL + "login"
+	static let REQ_CHECKEMAILVALID			= SERVER_URL + "checkEmailValid"
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         
@@ -268,7 +269,26 @@ class ApiFunctions{
             }
         }
     }
-    
+	
+	static func checkEmailValid(_ email: String, completion: @escaping (String) -> ()) {
+		let params = [
+			Constants.KEY_EMAIL: email
+		]
+		Alamofire.request(REQ_CHECKEMAILVALID, method: .post, parameters: params).responseJSON { response in
+			if response.result.isSuccess
+			{
+				let json = JSON(response.result.value!)
+				
+				let message = json[Constants.RES_MESSAGE].stringValue
+				completion(message)
+				
+			}
+			else {
+				completion(Constants.CHECK_NETWORK_ERROR)
+			}
+		}
+	}
+	
 
-    
+	
 }

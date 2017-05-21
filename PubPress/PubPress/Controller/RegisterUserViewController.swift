@@ -76,15 +76,25 @@ class RegisterUserViewController: BaseViewController {
                     if message == Constants.PROCESS_SUCCESS {
                         self.gotoRootViewController()
                     }
-                    else {
+                    else { 
                         self.showToastWithDuration(string: message, duration: 3.0)
                     }
                 })
             }
             else if object.isKind(of: PubModel.self) {
-                let addPubVC = storyboard?.instantiateViewController(withIdentifier: "AddPubViewController") as! AddPubViewController
-                addPubVC.pub = object as! PubModel
-                self.navigationController?.pushViewController(addPubVC, animated: true)
+				
+				ApiFunctions.checkEmailValid((object as! PubModel).pub_contactemail , completion: {
+					message in
+					if message == Constants.PROCESS_SUCCESS {
+						let addPubVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPubViewController") as! AddPubViewController
+						addPubVC.pub = self.object as! PubModel
+						self.navigationController?.pushViewController(addPubVC, animated: true)
+					}
+					else {
+						self.showToastWithDuration(string: message, duration: 3.0)
+					}
+				})
+				
             }
         }
         else {

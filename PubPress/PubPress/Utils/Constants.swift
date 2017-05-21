@@ -15,15 +15,18 @@ class Constants {
     
     //static let GOOGLEMAPKEY                 = "AIzaSyBJILF4L98DGEXplgLHP1pIdQrdbQ08skI"
     //error messages 
-    
-    static let CHECK_EMAIL_EMPTY            = "Please input your email"
-    static let CHECK_PASSWORD_EMPTY         = "Please input your password"
-    static let CHECK_EMAIL_INVALID          = "Please input valid email"
-    static let CHECK_NETWORK_ERROR          = "Network error!"
-    static let CHECK_ENCODING_ERROR         = "Encoding error!"
-    static let CHECK_NAME_EMPTY             = "Please input your name"
-    
-    
+	
+	
+	static let CHECK_EMAIL_EMPTY            = "Please input your email!"
+	static let CHECK_PASSWORD_EMPTY         = "Please input your password!"
+	static let CHECK_EMAIL_INVALID          = "Please input valid email!"
+	static let CHECK_NAME_EMPTY				= "Please input your name!"
+	
+	
+	static let CHECK_NETWORK_ERROR			= "Nework error!"	
+	
+	static let CHECK_ENCODING_ERROR			= "Encodign error!"
+	
     //PROCESS VALUES
     
     static let PROCESS_SUCCESS              = "success"
@@ -97,7 +100,17 @@ class Constants {
     static let KEY_GOOGLE_RESULT            = "data"
     
     
-    
+    //constants for status
+	
+	//mapview controller status
+	
+	static let MAP_VIEW_MAIN				= 1
+	static let MAP_VIEW_REGISTER			= 2
+	
+	//mapview controller max radius
+	
+	static let MAP_VIEW_MAX_RADIUS			= 10.0
+	
     
     
 }
