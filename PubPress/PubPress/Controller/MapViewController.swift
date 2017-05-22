@@ -24,24 +24,34 @@ class MapViewController: BaseViewController {
 	var status = Constants.MAP_VIEW_MAIN
     
 	@IBOutlet weak var searchRadiusSlider: UISlider!
-    
-    //let dataProvider = GoogleDataProvider()
 	@IBOutlet weak var searchRadiusLabel: UILabel!
 	
+	@IBOutlet weak var pubNameLabel: UILabel!
 	
 	var latitude = -100.0
 	var longitude = -100.0
     
+	@IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
+		
         super.viewDidLoad()
-
         userImage = UIImage(named: "icon_profile")
-        
         mapView.showsUserLocation = true
-        mapView.showsScale = true
 		isViewApppeared = false
+		mapView.mapType = .standard
+		mapView.showsTraffic = true
+		mapView.showsBuildings = true
+		mapView.showsCompass = true
 
+		if status == Constants.MAP_VIEW_MAIN {
+			backButton.isHidden = true
+			pubNameLabel.isHidden = true
+		}
+		else {
+			backButton.isHidden = false
+			pubNameLabel.isHidden = false
+		}
 		setSearchRadius()
     }
 	
@@ -54,18 +64,17 @@ class MapViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-    
     
     func getNearbyPubs() {
-        
-        ApiFunctions.getNearByPubs(latitude: latitude, longitude: longitude, radius: searchRadius, completion: {
-            success, pubs in
-            if success {
-                self.nearMePubs = pubs
-                self.arrangePubs()
-            }
-        })
+		
+		ApiFunctions.getNearByPubs(latitude: latitude, longitude: longitude, radius: searchRadius, completion: {
+			success, pubs in
+			if success {
+				self.nearMePubs = pubs
+				self.arrangePubs()
+			}
+		})
+		
     }
     
     
@@ -103,19 +112,31 @@ class MapViewController: BaseViewController {
 		
 		searchRadius = Double(sender.value) * Constants.MAP_VIEW_MAX_RADIUS * 1609.3
 		setSearchRadius()
-		
-		if sender.isTracking == false {
-			getNearbyPubs()
+		if latitude != -100 {
+			
+			if sender.isTracking == false {
+				getNearbyPubs()
+			}
 		}
 	}
 	@IBAction func searchButtonTapped(_ sender: Any) {
-		getNearbyPubs()
+		if latitude != -100 {
+			getNearbyPubs()
+		}
 	}
 	
 	@IBAction func directionButtonTapped(_ sender: Any) {
 		showDirection()
 	}
 	
+	@IBAction func backButtonTapped(_ sender: Any) {
+		let registerVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as! AddPubViewController
+		let previousPub = registerVC.pub
+		selectedPub.pub_contactemail = previousPub!.pub_contactemail
+		selectedPub.pub_contactpassword = previousPub!.pub_contactpassword
+		registerVC.pub = selectedPub
+		self.navigationController?.popViewController(animated: true)
+	}
 }
 
 
@@ -156,21 +177,29 @@ extension MapViewController: MKMapViewDelegate{
             // Don't proceed with custom callout
             return
         }
-		/*let label = UILabel()
-		label.text = (view.annotation?.title)!
-		label.font = UIFont.systemFont(ofSize: 12)
-		label.frame = CGRect(x: 15 - label.intrinsicContentSize.width/2, y: -15, width: label.intrinsicContentSize.width, height: label.intrinsicContentSize.height)
-		view.addSubview(label)*/
+		
 		
 		view.image = #imageLiteral(resourceName: "icon_pub_selected")
 		let starbucksAnnotation = view.annotation as! StarbuckAnnotation
         let pub = starbucksAnnotation.pub
-        let rootVC = self.parent?.parent?.parent as! RootViewController
-        if pub.pub_placeid != rootVC.currentPub.pub_placeid{
-            rootVC.currentPub = pub
-            rootVC.setPubView()
-        }
-		
+		if status == Constants.MAP_VIEW_MAIN {
+			let rootVC = self.parent?.parent?.parent as! RootViewController
+			if pub.pub_placeid != rootVC.currentPub.pub_placeid{
+				rootVC.currentPub = pub
+				rootVC.setPubView()
+			}
+		}
+		else if status == Constants.MAP_VIEW_REGISTER {
+			self.showLoadingView()
+			ApiFunctions.getPlaceDetails(pub.pub_placeid, completion: {
+				success, detailedPub in
+				self.hideLoadingView()
+				if success {
+					self.selectedPub = detailedPub!
+				}
+			})
+			pubNameLabel.text = pub.pub_name
+		}
         selectedPub = pub
 		
         
@@ -226,28 +255,29 @@ extension MapViewController: MKMapViewDelegate{
     }
     
     func showDirection() {
-        
-        //CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
-        for overlay in mapView.overlays{
-            mapView.remove(overlay)
-        }
-        let request = MKDirectionsRequest()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: selectedPub.pub_latitude, longitude: selectedPub.pub_longitude), addressDictionary: nil))
-        request.requestsAlternateRoutes = false
-        request.transportType = .any
-        
-        let directions = MKDirections(request: request)
-        
-        directions.calculate { [unowned self] response, error in
-            guard let unwrappedResponse = response else { return }
-            
-            for route in unwrappedResponse.routes {
-                self.mapView.add(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
-        }
-        
+		if selectedPub.pub_name.characters.count > 0 {
+			//CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+			for overlay in mapView.overlays{
+				mapView.remove(overlay)
+			}
+			let request = MKDirectionsRequest()
+			request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude), addressDictionary: nil))
+			request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: selectedPub.pub_latitude, longitude: selectedPub.pub_longitude), addressDictionary: nil))
+			request.requestsAlternateRoutes = false
+			request.transportType = .any
+			
+			let directions = MKDirections(request: request)
+			
+			directions.calculate { [unowned self] response, error in
+				guard let unwrappedResponse = response else { return }
+				
+				for route in unwrappedResponse.routes {
+					self.mapView.add(route.polyline)
+					self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+				}
+			}
+		}
+		
     }
 	
 	

@@ -14,5 +14,6 @@ class ProductModel {
     var product_name                        = ""
     var product_type                        = ""
     var product_price                       = ""
+	var product_image						= ""
     
 }

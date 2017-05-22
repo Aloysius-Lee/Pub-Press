@@ -122,8 +122,9 @@ class ApiFunctions{
                       Constants.KEY_PUB_PLACEID_B: pub.pub_placeid,
                       Constants.KEY_PUB_VINICITY_B: pub.pub_vicinity,
                       Constants.KEY_PUB_OPENHOURS_B: pub.getOpenhourString(),
-                      Constants.KEY_PUB_IMAGEURL_B: pub.pub_imageurl
-            
+                      Constants.KEY_PUB_IMAGEURL_B: pub.pub_imageurl,
+                      Constants.KEY_PUB_CONTACTEMAIL_B: pub.pub_contactemail,
+                      Constants.KEY_PUB_CONTACTPASSWORD_B: pub.pub_contactpassword
         ] as [String: Any]
         Alamofire.request(REQ_REGISTERPUB, method: .post, parameters: params).responseJSON { response in
             if response.result.isSuccess

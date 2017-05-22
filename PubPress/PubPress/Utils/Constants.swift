@@ -84,6 +84,8 @@ class Constants {
     static let KEY_PUB_VINICITY_B           = "pub_vicinity"
     static let KEY_PUB_OPENHOURS_B          = "pub_openhours"
     static let KEY_PUB_IMAGEURL_B           = "pub_imageurl"
+	static let KEY_PUB_CONTACTEMAIL_B		= "pub_contactemail"
+	static let KEY_PUB_CONTACTPASSWORD_B	= "pub_contactpassword"
     
     //product key
     

@@ -39,6 +39,8 @@
 		E1AE2A331EA5A6A7001A7086 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE2A321EA5A6A7001A7086 /* PubModel.swift */; };
 		E1D117751EC1AA300094AF53 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D117741EC1AA300094AF53 /* StartViewController.swift */; };
 		E1D117771EC1B0B10094AF53 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */; };
+		E1D963DF1ED24A9600B29157 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D963DE1ED24A9600B29157 /* AddCardViewController.swift */; };
+		E1D963E11ED24D9F00B29157 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D963E01ED24D9F00B29157 /* ProductTableViewCell.swift */; };
 		E1ED854C1EC1EC4900648140 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED854B1EC1EC4900648140 /* LoginViewController.swift */; };
 		E1FFF2391EC30FA900F84812 /* PubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFF2381EC30FA900F84812 /* PubDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		E1AE2A321EA5A6A7001A7086 /* PubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
 		E1D117741EC1AA300094AF53 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		E1D963DE1ED24A9600B29157 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		E1D963E01ED24D9F00B29157 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		E1ED854B1EC1EC4900648140 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1FFF2381EC30FA900F84812 /* PubDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDetailViewController.swift; sourceTree = "<group>"; };
 		FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PubPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,7 @@
 				E1D117761EC1B0B10094AF53 /* RegisterUserViewController.swift */,
 				E1ED854B1EC1EC4900648140 /* LoginViewController.swift */,
 				E1FFF2381EC30FA900F84812 /* PubDetailViewController.swift */,
+				E1D963DE1ED24A9600B29157 /* AddCardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			children = (
 				E1883EB51EA654EB00774E81 /* StarbuckAnnotation.swift */,
 				E1883EB71EA6569500774E81 /* AnnotationView.swift */,
+				E1D963E01ED24D9F00B29157 /* ProductTableViewCell.swift */,
 			);
 			name = View;
 			path = Model/View;
@@ -425,6 +431,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D963DF1ED24A9600B29157 /* AddCardViewController.swift in Sources */,
+				E1D963E11ED24D9F00B29157 /* ProductTableViewCell.swift in Sources */,
 				0A38865E1E98229D003C2A4D /* AppDelegate.swift in Sources */,
 				0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */,
 				0A3886701E982ADC003C2A4D /* LandingViewController.swift in Sources */,

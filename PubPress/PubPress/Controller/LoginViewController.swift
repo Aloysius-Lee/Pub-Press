@@ -40,8 +40,7 @@ class LoginViewController: BaseViewController {
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
-        let landingVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
-        self.navigationController?.viewControllers = [landingVC!]
+		gotoMainScene()
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -62,8 +61,7 @@ class LoginViewController: BaseViewController {
                     
                     UserDefaults.standard.set(self.emailTextField.text!, forKey: Constants.KEY_EMAIL)
                     UserDefaults.standard.set(self.passwordTextField.text!, forKey: Constants.KEY_PASSWORD)
-                    let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
-                    self.navigationController?.viewControllers = [rootVC!]
+					self.gotoMainScene()
                 }
                 else {
                     self.showToastWithDuration(string: message, duration: 3.0)

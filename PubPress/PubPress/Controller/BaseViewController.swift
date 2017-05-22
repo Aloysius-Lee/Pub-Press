@@ -50,5 +50,12 @@ class BaseViewController: UIViewController {
     {
         self.view.hideToastActivity()
         self.view.isUserInteractionEnabled = true
-    }    
+    }
+	
+	
+	func gotoMainScene() {
+		let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
+		self.navigationController?.viewControllers = [rootVC!]
+	}
+
 }

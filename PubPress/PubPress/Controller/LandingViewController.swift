@@ -32,4 +32,14 @@ class LandingViewController: BaseViewController {
     }
     */
 
+	@IBAction func logoutButtonTapped(_ sender: Any) {
+		if UserDefaults.standard.value(forKey: Constants.KEY_EMAIL) != nil {
+			UserDefaults.standard.removeObject(forKey: Constants.KEY_EMAIL)
+			UserDefaults.standard.removeObject(forKey: Constants.KEY_PASSWORD)
+			currentUser = UserModel()
+			currentPub = PubModel()
+		}
+		let startVC = storyboard?.instantiateViewController(withIdentifier: "StartViewController")
+		self.navigationController?.viewControllers = [startVC!]
+	}
 }

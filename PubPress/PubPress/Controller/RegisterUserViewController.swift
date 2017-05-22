@@ -32,17 +32,6 @@ class RegisterUserViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func initView() {
         if object.isKind(of: UserModel.self) {
             initUserRegisterUI()
@@ -71,10 +60,12 @@ class RegisterUserViewController: BaseViewController {
         let message = checkValid()
         if message == Constants.PROCESS_SUCCESS {
             if object.isKind(of: UserModel.self){
+				self.showLoadingView()
                 ApiFunctions.registerUser(object as! UserModel, completion: {
                     message, user in
+					self.hideLoadingView()
                     if message == Constants.PROCESS_SUCCESS {
-                        self.gotoRootViewController()
+                        self.gotoMainScene()
                     }
                     else { 
                         self.showToastWithDuration(string: message, duration: 3.0)
@@ -82,12 +73,14 @@ class RegisterUserViewController: BaseViewController {
                 })
             }
             else if object.isKind(of: PubModel.self) {
-				
+				self.showLoadingView()
 				ApiFunctions.checkEmailValid((object as! PubModel).pub_contactemail , completion: {
 					message in
+					self.hideLoadingView()
 					if message == Constants.PROCESS_SUCCESS {
 						let addPubVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPubViewController") as! AddPubViewController
 						addPubVC.pub = self.object as! PubModel
+						
 						self.navigationController?.pushViewController(addPubVC, animated: true)
 					}
 					else {
@@ -101,18 +94,13 @@ class RegisterUserViewController: BaseViewController {
             self.showToastWithDuration(string: message, duration: 3.0)
         }
     }
-    
-    func gotoRootViewController() {
-        let landingVC = self.storyboard?.instantiateViewController(withIdentifier: "RootViewController")
-        self.navigationController?.viewControllers = [landingVC!]
-    }
-    
+	
     func checkValid() -> String {
         
         self.view.endEditing(true)
         let email = emailTextField.text!
         let password = passwordTextField.text!
-        let name = fullnameLabel.text!
+        let name = fullnameTextField.text!
         if email.characters.count == 0 {
             return Constants.CHECK_EMAIL_EMPTY
         }
