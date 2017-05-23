@@ -33,7 +33,7 @@ class Constants {
     static let PROCESS_FAIL                 = "fail"
     
     static let RES_MESSAGE                  = "message"
-    
+
     static let KEY_EMAIL                    = "email"
     static let KEY_PASSWORD                 = "password"
     
@@ -112,6 +112,42 @@ class Constants {
 	//mapview controller max radius
 	
 	static let MAP_VIEW_MAX_RADIUS			= 10.0
+	
+	//add cardviewcontroller status 
+	
+	static let ADDCARD_VIEW_REGISTER		= 1
+	static let ADDCARD_VIEW_MAIN			= 2
+	
+	
+	//stripe payment keys
+	
+	static let RES_STATUS					= "status"
+	static let RES_ACCOUNT_DATA				= "account_data"
+	static let KEY_ACCOUNT_ID				= "accountid"
+	
+	
+	//bank account keys 
+	
+	static let KEY_BANK_ACCOUNT_NUMBER		= "acc_number"
+	static let KEY_BANK_ACCOUNT_COUNTRY		= "acc_country"
+	static let KEY_BANK_ACCOUNT_ROUTING		= "acc_routing"
+	static let KEY_BANK_DOB_DAY				= "dob_day"
+	static let KEY_BANK_DOB_MONTH			= "dob_month"
+	static let KEY_BANK_BOD_YEAR			= "dob_year"
+	static let KEY_BANK_FIRST_NAME			= "first_name"
+	static let KEY_BANK_LAST_NAME			= "last_name"
+	static let KEY_BANK_CITY				= "city"
+	static let KEY_BANK_LINE1				= "line1"
+	static let KEY_BANK_POSTAL_CODE			= "postal_code"
+	static let KEY_BANK_STATE				= "state"
+	static let KEY_BANK_SSN_LAST4			= "ssn_last_4"
+	
+	//payment keys
+	
+	static let KEY_PAYMENT_EMAIL			= "providerEmail"
+	static let KEY_PAYMENT_PRODUCTPRICE		= "productPrice"
+	static let KEY_PAYMENT_STRIPE_TOKEN		= "stripeToken"
+	static let KEY_PAYMENT_CUSTOMEREMAIL	= "customerEmail"
 	
     
     

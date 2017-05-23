@@ -44,9 +44,31 @@ class PaymentGatewayUtils {
             }
         }
     }*/
-    
-    static func submitTokenToBackend(_ token: String, completion : @escaping (Bool) -> ()) {
-        
-    }
+	
+	
+	
+	static func getTokenFromStripe(_ card: CardModel, completion: @escaping (String, String) -> ()) {
+		let cardParams = STPCardParams()
+		cardParams.number = card.cardnumber
+		cardParams.expMonth = card.expMonth
+		cardParams.expYear = card.expYear
+		cardParams.cvc = card.cvc
+		STPAPIClient.shared().createToken(withCard: cardParams) { (token, error) in
+			if error == nil {
+				completion(Constants.PROCESS_SUCCESS, token!.tokenId)
+			}
+			else {
+				completion(error.debugDescription, "")
+			}
+		}
+	}
+	
+	static func accountCreate(_ email: String, completion: @escaping (String) -> ()) {
+		
+	}
+	
+	
+	
+	
 }
 

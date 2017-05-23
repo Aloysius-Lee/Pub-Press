@@ -29,6 +29,16 @@ class ApiFunctions{
     static let REQ_REGISTERPRODUCT          = SERVER_URL + "registerProduct"
     static let REQ_LOGIN                    = SERVER_URL + "login"
 	static let REQ_CHECKEMAILVALID			= SERVER_URL + "checkEmailValid"
+	
+	//stripe request (backend)
+	
+	static let REQ_CREATE_STRIPEACCOUNT		= SERVER_URL + "Stripe/act/account_create"
+	
+	static let REQ_UPDATE_STRIPEACCOUNT		= SERVER_URL + "Stripe/act/account_update_required"
+	static let REQ_ACCOUNT_DETAILS			= SERVER_URL + "Stripe/act/account_details"
+	static let REQ_PRODUCT_BUY				= SERVER_URL + "Stripe/act/product_buy"
+	
+	
     
     static func getNearByPubs(latitude: Double, longitude: Double, radius: Double,  completion: @escaping (Bool, [PubModel]) -> ()) {
         
@@ -289,6 +299,128 @@ class ApiFunctions{
 			}
 		}
 	}
+	
+	//MARK - stripe payment backend
+	
+	static func accountCreate(_ pub: PubModel, completion: @escaping (String) -> ()) {
+		let params = [
+			Constants.KEY_EMAIL: pub.pub_contactemail
+		]
+		Alamofire.request(REQ_CREATE_STRIPEACCOUNT, method: .post, parameters: params).responseJSON { response in
+			if response.result.isSuccess
+			{
+				let json = JSON(response.result.value!)
+				let success = json[Constants.RES_STATUS].stringValue
+				if success == Constants.PROCESS_SUCCESS {
+					pub.pub_bankaccount.account_status = json[Constants.RES_ACCOUNT_DATA][Constants.RES_STATUS].stringValue
+					completion(Constants.PROCESS_SUCCESS)
+				}
+				else  {
+					
+					completion(success)
+				}
+				
+			}
+			else {
+				completion(Constants.CHECK_NETWORK_ERROR)
+			}
+		}
+	}
+	
+	static func accountUpdate(_ pub: PubModel, completion: @escaping (String) -> ()) {
+		let bank = pub.pub_bankaccount
+		let params = [
+			Constants.KEY_EMAIL: pub.pub_contactemail,
+			Constants.KEY_BANK_ACCOUNT_NUMBER : bank.acc_number,
+			Constants.KEY_BANK_ACCOUNT_COUNTRY : bank.acc_country,
+			Constants.KEY_BANK_ACCOUNT_ROUTING : bank.acc_routing,
+			Constants.KEY_BANK_BOD_YEAR: bank.dob_year,
+			Constants.KEY_BANK_DOB_MONTH : bank.dob_month,
+			Constants.KEY_BANK_DOB_DAY : bank.dob_day,
+			Constants.KEY_BANK_FIRST_NAME : bank.first_name,
+			Constants.KEY_BANK_LAST_NAME : bank.last_name,
+			Constants.KEY_BANK_CITY : bank.city,
+			Constants.KEY_BANK_LINE1 : bank.line1,
+			Constants.KEY_BANK_POSTAL_CODE : bank.postal_code,
+			Constants.KEY_BANK_STATE : bank.state,
+			Constants.KEY_BANK_SSN_LAST4 : bank.ssn_last_4
+		]
+		
+		Alamofire.request(REQ_UPDATE_STRIPEACCOUNT, method: .post, parameters: params).responseJSON { response in
+			if response.result.isSuccess
+			{
+				let json = JSON(response.result.value!)
+				let success = json[Constants.RES_STATUS].stringValue
+				if success == Constants.PROCESS_SUCCESS {
+					pub.pub_bankaccount.account_status = json[Constants.RES_ACCOUNT_DATA][Constants.RES_STATUS].stringValue
+					completion(Constants.PROCESS_SUCCESS)
+				}
+				else  {
+					
+					completion(success)
+				}
+				
+			}
+			else {
+				completion(Constants.CHECK_NETWORK_ERROR)
+			}
+		}
+	}
+	
+	static func getAccountDetails (_ pub: PubModel, completion: @escaping (String) -> ()) {
+		
+		let params = [
+			Constants.KEY_EMAIL: pub.pub_contactemail
+		]
+		Alamofire.request(REQ_ACCOUNT_DETAILS, method: .post, parameters: params).responseJSON { response in
+			if response.result.isSuccess
+			{
+				let json = JSON(response.result.value!)
+				let success = json[Constants.RES_STATUS].stringValue
+				if success == Constants.PROCESS_SUCCESS {
+					pub.pub_bankaccount.account_status = json[Constants.RES_ACCOUNT_DATA][Constants.RES_STATUS].stringValue
+					completion(Constants.PROCESS_SUCCESS)
+				}
+				else  {
+					
+					completion(success)
+				}
+				
+			}
+			else {
+				completion(Constants.CHECK_NETWORK_ERROR)
+			}
+		}
+	}
+	
+	static func buyProduct(_ pubEmail: String, token: String, price: String, userEmail: String,completion: @escaping (String) -> ()) {
+		
+		let params = [
+			Constants.KEY_PAYMENT_EMAIL: pubEmail,
+			Constants.KEY_PAYMENT_PRODUCTPRICE : price,
+			Constants.KEY_PAYMENT_STRIPE_TOKEN : token,
+			Constants.KEY_PAYMENT_CUSTOMEREMAIL : userEmail
+		]
+		Alamofire.request(REQ_PRODUCT_BUY, method: .post, parameters: params).responseJSON { response in
+			if response.result.isSuccess
+			{
+				let json = JSON(response.result.value!)
+				let success = json[Constants.RES_STATUS].stringValue
+				if success == Constants.PROCESS_SUCCESS {
+					completion(Constants.PROCESS_SUCCESS)
+				}
+				else  {
+					
+					completion(success)
+				}
+				
+			}
+			else {
+				completion(Constants.CHECK_NETWORK_ERROR)
+			}
+		}
+	}
+	
 	
 
 	

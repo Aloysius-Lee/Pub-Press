@@ -25,6 +25,8 @@ class PubModel {
     var pub_contactpassword     = ""
     var pub_formatted_phone_number         = ""
     var pub_formatted_address   = ""
+	var pub_bankaccount			= BankAccountModel()
+	
     
     var pub_products: [ProductModel] = []
     

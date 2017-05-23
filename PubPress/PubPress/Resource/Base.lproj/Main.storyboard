@@ -1392,12 +1392,64 @@
                     <view key="view" contentMode="scaleToFill" id="kCk-tk-0FP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIm-ep-3Zn">
+                                <rect key="frame" x="274" y="518" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipButtonTapped:" destination="7T1-cD-ceF" eventType="touchUpInside" id="N3U-Mj-NCz"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uaI-gU-RQl">
+                                <rect key="frame" x="40" y="110" width="240" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-iH-0G9">
+                                <rect key="frame" x="75.5" y="50" width="169" height="40"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Add Card
+</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="20"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="(add your card information)">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".SFNSDisplay"/>
+                                            <font key="NSOriginalFont" size="14" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-Xo-g1F">
+                                <rect key="frame" x="16" y="28" width="32" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="back"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dfY-Xo-g1F" firstAttribute="leading" secondItem="kCk-tk-0FP" secondAttribute="leadingMargin" id="8yE-YO-K9B"/>
+                            <constraint firstItem="TwN-9i-58g" firstAttribute="top" secondItem="RIm-ep-3Zn" secondAttribute="bottom" constant="20" id="BpH-og-o9d"/>
+                            <constraint firstItem="dfY-Xo-g1F" firstAttribute="top" secondItem="112-Is-ooz" secondAttribute="bottom" constant="8" id="cOC-Bj-dyk"/>
+                            <constraint firstItem="RIm-ep-3Zn" firstAttribute="trailing" secondItem="kCk-tk-0FP" secondAttribute="trailingMargin" id="dUi-yF-D0X"/>
+                            <constraint firstItem="dfx-iH-0G9" firstAttribute="top" secondItem="112-Is-ooz" secondAttribute="bottom" constant="30" id="ehh-46-rId"/>
+                            <constraint firstItem="dfx-iH-0G9" firstAttribute="centerX" secondItem="kCk-tk-0FP" secondAttribute="centerX" id="nKi-6T-Arh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="dfY-Xo-g1F" id="N4L-00-Kx3"/>
+                        <outlet property="skipButton" destination="RIm-ep-3Zn" id="Xwb-Fh-4ay"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9C-vs-PqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="777"/>
+            <point key="canvasLocation" x="2527.5" y="784.85915492957747"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="5s4-Vh-vMG">
@@ -1479,18 +1531,24 @@
                                 <rect key="frame" x="117" y="518" width="86" height="30"/>
                                 <state key="normal" title="Add product"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyc-Xh-jIM">
+                                <rect key="frame" x="274" y="518" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1IH-Yg-vWL" firstAttribute="top" secondItem="v4Z-BE-H0Z" secondAttribute="bottom" constant="30" id="4gx-sD-hXH"/>
                             <constraint firstItem="gxH-2K-J6u" firstAttribute="top" secondItem="jTw-7g-Q0L" secondAttribute="bottom" constant="28" id="8OK-IK-ikT"/>
                             <constraint firstItem="gxH-2K-J6u" firstAttribute="centerX" secondItem="NmE-pj-qBH" secondAttribute="centerX" id="Ai8-8l-pAg"/>
+                            <constraint firstItem="Fyc-Xh-jIM" firstAttribute="trailing" secondItem="NmE-pj-qBH" secondAttribute="trailingMargin" id="CCT-Fy-Hsl"/>
                             <constraint firstItem="upH-pN-z5f" firstAttribute="top" secondItem="gxH-2K-J6u" secondAttribute="bottom" constant="5" id="CGa-5C-Ze7"/>
                             <constraint firstItem="upH-pN-z5f" firstAttribute="trailing" secondItem="gxH-2K-J6u" secondAttribute="trailing" id="JAF-Zj-ov2"/>
                             <constraint firstItem="v4Z-BE-H0Z" firstAttribute="top" secondItem="upH-pN-z5f" secondAttribute="bottom" constant="30" id="LhJ-5P-2MD"/>
                             <constraint firstItem="upH-pN-z5f" firstAttribute="leading" secondItem="gxH-2K-J6u" secondAttribute="leading" id="Nlc-1r-pvy"/>
                             <constraint firstItem="v4Z-BE-H0Z" firstAttribute="leading" secondItem="NmE-pj-qBH" secondAttribute="leadingMargin" constant="10" id="SrZ-WE-wkg"/>
                             <constraint firstItem="gxH-2K-J6u" firstAttribute="leading" secondItem="NmE-pj-qBH" secondAttribute="leadingMargin" constant="10" id="Vit-7d-d41"/>
+                            <constraint firstItem="3sv-4f-wMr" firstAttribute="top" secondItem="Fyc-Xh-jIM" secondAttribute="bottom" constant="20" id="aRN-3z-w94"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v4Z-BE-H0Z" secondAttribute="trailing" constant="10" id="l34-A8-agT"/>
                             <constraint firstItem="3sv-4f-wMr" firstAttribute="top" secondItem="v4Z-BE-H0Z" secondAttribute="bottom" constant="80" id="uTU-uV-7eZ"/>
                             <constraint firstItem="1IH-Yg-vWL" firstAttribute="centerX" secondItem="NmE-pj-qBH" secondAttribute="centerX" id="x8y-0o-wmz"/>
@@ -1613,7 +1671,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q16-rm-pDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4470" y="767.95774647887322"/>
+            <point key="canvasLocation" x="4721" y="768"/>
         </scene>
     </scenes>
     <resources>

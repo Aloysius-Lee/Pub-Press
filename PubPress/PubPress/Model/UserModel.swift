@@ -17,18 +17,15 @@ class UserModel {
     var user_password                   = ""
     var user_profileimageurl            = ""
 
-    
-    var user_cardname                   = ""
-    var user_cardnumber                 = ""
-    var user_expMonth: UInt             = 0
-    var user_expYear: UInt              = 0
-    var user_cvc                        = ""
+	
     
     var user_tier                       = "0"
     var user_credits                    = "0"
     var user_netpints                   = "0"
     var user_decadence                  = "0"
-    
+	
+	
+	var user_card						= CardModel()
     
     
     

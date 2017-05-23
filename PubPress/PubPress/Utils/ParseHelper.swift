@@ -352,5 +352,6 @@ class ParseHelper {
         user.user_credits = rawData[Constants.KEY_USER_CREDITS].nonNullStringValue
         return user
     }
+	
     
 }

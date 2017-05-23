@@ -25,6 +25,8 @@
 		0A38867F1E9838C0003C2A4D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38867E1E9838C0003C2A4D /* UIView+Extensions.swift */; };
 		0A8F95181E986F53003052B9 /* PaymentGateWayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */; };
 		1AC27ECA2449FD3B10EEA36E /* Pods_PubPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC27A746DC8B0C1B9FBF0EB /* Pods_PubPress.framework */; };
+		E102B53E1ED425F400B0E618 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E102B53D1ED425F400B0E618 /* CardModel.swift */; };
+		E102B5401ED438B100B0E618 /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E102B53F1ED438B100B0E618 /* BankAccountModel.swift */; };
 		E12DF95C1EA4C2AA0058ABED /* StripeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */; };
 		E180AFE01EB7DB4000A49529 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180AFDF1EB7DB4000A49529 /* ProductModel.swift */; };
 		E180AFE21EB7E3E600A49529 /* AddPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */; };
@@ -67,9 +69,9 @@
 		0A8F95171E986F53003052B9 /* PaymentGateWayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentGateWayUtils.swift; sourceTree = "<group>"; };
 		1074396C1BAC56E2CF8CF0A3 /* Pods-PubPress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.debug.xcconfig"; sourceTree = "<group>"; };
 		7A8DEC4378014462FD700D01 /* Pods-PubPress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PubPress.release.xcconfig"; path = "Pods/Target Support Files/Pods-PubPress/Pods-PubPress.release.xcconfig"; sourceTree = "<group>"; };
+		E102B53D1ED425F400B0E618 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		E102B53F1ED438B100B0E618 /* BankAccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeConstants.swift; sourceTree = "<group>"; };
-		E15CB3CE1EBD722600A198A1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
-		E15CB3D31EBD72CD00A198A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		E180AFDF1EB7DB4000A49529 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		E180AFE11EB7E3E600A49529 /* AddPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPubViewController.swift; sourceTree = "<group>"; };
 		E180AFE31EB7E81100A49529 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 				E1AE2A321EA5A6A7001A7086 /* PubModel.swift */,
 				E18CCFAF1EB5DC9700C4842D /* PaymentModel.swift */,
 				E180AFDF1EB7DB4000A49529 /* ProductModel.swift */,
+				E102B53D1ED425F400B0E618 /* CardModel.swift */,
+				E102B53F1ED438B100B0E618 /* BankAccountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,7 +202,6 @@
 		0A38865C1E98229D003C2A4D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				E15CB3CD1EBD720C00A198A1 /* FacebookSDK */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -246,15 +249,6 @@
 				E12DF95B1EA4C2AA0058ABED /* StripeConstants.swift */,
 			);
 			name = "Stripe Helper";
-			sourceTree = "<group>";
-		};
-		E15CB3CD1EBD720C00A198A1 /* FacebookSDK */ = {
-			isa = PBXGroup;
-			children = (
-				E15CB3D31EBD72CD00A198A1 /* FBSDKLoginKit.framework */,
-				E15CB3CE1EBD722600A198A1 /* FBSDKShareKit.framework */,
-			);
-			name = FacebookSDK;
 			sourceTree = "<group>";
 		};
 		E1883EB41EA654EB00774E81 /* View */ = {
@@ -453,6 +447,7 @@
 				E180AFE41EB7E81100A49529 /* AddProductViewController.swift in Sources */,
 				E1D117751EC1AA300094AF53 /* StartViewController.swift in Sources */,
 				E180AFE21EB7E3E600A49529 /* AddPubViewController.swift in Sources */,
+				E102B5401ED438B100B0E618 /* BankAccountModel.swift in Sources */,
 				0A38866E1E982AAE003C2A4D /* BaseViewController.swift in Sources */,
 				E1D117771EC1B0B10094AF53 /* RegisterUserViewController.swift in Sources */,
 				E1883EB61EA654EB00774E81 /* StarbuckAnnotation.swift in Sources */,
@@ -460,6 +455,7 @@
 				E180AFE01EB7DB4000A49529 /* ProductModel.swift in Sources */,
 				E1ED854C1EC1EC4900648140 /* LoginViewController.swift in Sources */,
 				E1AE2A2D1EA5650C001A7086 /* ApiFunctions.swift in Sources */,
+				E102B53E1ED425F400B0E618 /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
