@@ -31,9 +31,10 @@ class ProfileSettingViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        beerImageView.setImageWith(color: UIColor.black)
+        //beerImageView.setImageWith(color: UIColor.black)
         settingImageView.setImageWith(color: UIColor.darkGray)
         giftImageView.setImageWith(color: UIColor.darkGray)
+		setUser(currentUser)
     
     }
 
@@ -79,4 +80,7 @@ class ProfileSettingViewController: BaseViewController {
         
     }
     
+	@IBAction func backButtonTapped(_ sender: Any) {
+		self.navigationController?.popViewController(animated: true)
+	}
 }

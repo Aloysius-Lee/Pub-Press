@@ -20,18 +20,8 @@ class LandingViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	
 	@IBAction func logoutButtonTapped(_ sender: Any) {
 		if UserDefaults.standard.value(forKey: Constants.KEY_EMAIL) != nil {
 			UserDefaults.standard.removeObject(forKey: Constants.KEY_EMAIL)
@@ -41,5 +31,23 @@ class LandingViewController: BaseViewController {
 		}
 		let startVC = storyboard?.instantiateViewController(withIdentifier: "StartViewController")
 		self.navigationController?.viewControllers = [startVC!]
+	}
+	@IBAction func settingsButtonTapped(_ sender: Any) {
+		if currentPub.pub_id.characters.count > 0 {
+			let pubDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "PubDetailViewController") as! PubDetailViewController
+			pubDetailVC.pub = currentPub
+			self.navigationController?.pushViewController(pubDetailVC, animated: true)
+		}
+		else if currentUser.user_id.characters.count > 0 {
+			
+
+			let userSettingVC = storyboard?.instantiateViewController(withIdentifier: "ProfileSettingViewController") as! ProfileSettingViewController
+			self.navigationController?.pushViewController(userSettingVC, animated: true)
+			
+			
+		}
+		else {
+			logoutButtonTapped("")
+		}
 	}
 }

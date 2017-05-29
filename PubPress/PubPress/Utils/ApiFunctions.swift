@@ -14,7 +14,7 @@ import CoreLocation
 
 class ApiFunctions{
     
-    static let SERVER_URL                  = "http://35.164.51.96/index.php/Api/"
+    static let SERVER_URL                  = "http://34.209.33.44/index.php/Api/"
     //static let SERVER_URL                  = "http://192.168.1.120:1300/Pub_Press/index.php/Api/"
     
     
@@ -32,11 +32,12 @@ class ApiFunctions{
 	
 	//stripe request (backend)
 	
-	static let REQ_CREATE_STRIPEACCOUNT		= SERVER_URL + "Stripe/act/account_create"
+	static let STRIPE_URL = "http://34.209.33.44/index.php/Stripe/act/"
+	static let REQ_CREATE_STRIPEACCOUNT		= STRIPE_URL + "account_create"
 	
-	static let REQ_UPDATE_STRIPEACCOUNT		= SERVER_URL + "Stripe/act/account_update_required"
-	static let REQ_ACCOUNT_DETAILS			= SERVER_URL + "Stripe/act/account_details"
-	static let REQ_PRODUCT_BUY				= SERVER_URL + "Stripe/act/product_buy"
+	static let REQ_UPDATE_STRIPEACCOUNT		= STRIPE_URL + "account_update_required"
+	static let REQ_ACCOUNT_DETAILS			= STRIPE_URL + "account_details"
+	static let REQ_PRODUCT_BUY				= STRIPE_URL + "product_buy"
 	
 	
     
@@ -80,7 +81,13 @@ class ApiFunctions{
             {
                 let json = JSON(response.result.value!)
                 let locationJSON = json[Constants.KEY_GOOGLE_RESULT]["result"]
-                completion(true, ParseHelper.parseGooglePub(locationJSON))
+				let pub = ParseHelper.parseGooglePub(locationJSON)
+				let backendObject = json["pub"]
+				pub.pub_contactemail = backendObject["pub"][Constants.KEY_PUB_CONTACTEMAIL_B].stringValue
+				let productObject = backendObject["cheap_product"]
+				let product = ParseHelper.parseProduct(productObject)
+				pub.pub_cheap_product = product
+                completion(true, pub)
                 
             }
             else {
@@ -159,7 +166,8 @@ class ApiFunctions{
     static func registerProduct(pubid: String, product: ProductModel,completion: @escaping (String, ProductModel) -> ()) {
         
         let params = [ Constants.KEY_PRODUCT_NAME: product.product_name,
-                       Constants.KEY_PRODUCT_PRICE: product.product_price
+                       Constants.KEY_PRODUCT_PRICE: product.product_price,
+                       Constants.KEY_PUB_ID_B: pubid
         ]
         Alamofire.request(REQ_REGISTERPRODUCT, method: .post, parameters: params).responseJSON { response in
             if response.result.isSuccess
@@ -265,8 +273,14 @@ class ApiFunctions{
                         completion(Constants.PROCESS_SUCCESS, ParseHelper.parseUser(userObject[0]) as AnyObject)
                     }
                     else {
-                        let pubObject = json[Constants.KEY_PUB_INFO].arrayValue
-                        completion(Constants.PROCESS_SUCCESS, ParseHelper.parsePub(pubObject[0]) as AnyObject)
+                        let pubObject = json[Constants.KEY_PUB_INFO]
+						let pub = ParseHelper.parsePub(pubObject)
+						
+						let productsObject = json[Constants.KEY_PUB_PRODUCTS_B].arrayValue
+						for productObject in productsObject {
+							pub.pub_products.append(ParseHelper.parseProduct(productObject))
+						}
+                        completion(Constants.PROCESS_SUCCESS, pub as AnyObject)
                     }
                 }
                 else {
@@ -397,21 +411,21 @@ class ApiFunctions{
 		
 		let params = [
 			Constants.KEY_PAYMENT_EMAIL: pubEmail,
-			Constants.KEY_PAYMENT_PRODUCTPRICE : price,
+			Constants.KEY_PAYMENT_PRODUCTPRICE : "\(Double(price)! * 100)",
 			Constants.KEY_PAYMENT_STRIPE_TOKEN : token,
 			Constants.KEY_PAYMENT_CUSTOMEREMAIL : userEmail
 		]
 		Alamofire.request(REQ_PRODUCT_BUY, method: .post, parameters: params).responseJSON { response in
+			
 			if response.result.isSuccess
 			{
 				let json = JSON(response.result.value!)
-				let success = json[Constants.RES_STATUS].stringValue
-				if success == Constants.PROCESS_SUCCESS {
+				let message = json[Constants.RES_STATUS].stringValue
+				if message == Constants.PROCESS_SUCCESS {
 					completion(Constants.PROCESS_SUCCESS)
 				}
 				else  {
-					
-					completion(success)
+					completion(json["data"]["message"].stringValue)
 				}
 				
 			}

@@ -27,7 +27,7 @@ class PubModel {
     var pub_formatted_address   = ""
 	var pub_bankaccount			= BankAccountModel()
 	
-    
+    var	pub_cheap_product		= ProductModel()
     var pub_products: [ProductModel] = []
     
     

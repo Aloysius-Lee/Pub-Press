@@ -27,6 +27,22 @@ class Constants {
 	
 	static let CHECK_ENCODING_ERROR			= "Encodign error!"
 	
+	
+	
+	//error messages for check payment card
+	static let CHECK_CARDNO_ERROR			= "Card number is not valid!"
+	static let CHECK_COUNTRY_ERROR			= "Country is required!"
+	static let CHECK_ROUTING_EMPTY			= "Routing is empty!"
+	static let CHECK_DOB_ERROR				= "DOB error!"
+	static let CHECK_FIRSTNAME_EMPTY		= "First name is empty!"
+	static let CHECK_LASTNAME_EMPTY			= "Last name is empty!"
+	static let CHECK_CITY_EMPTY				= "City is empty!"
+	static let CHECK_LINE1_EMPTY			= "Line1 is empty!"
+	static let CHECK_POSTALCODE_EMPTY		= "Postal code is empty!"
+	static let CHECK_STATE_EMPTY			= "State is empty!"
+	static let CHECK_SSNLAST4_ERROR			= "Please input valid code!"
+	
+	
     //PROCESS VALUES
     
     static let PROCESS_SUCCESS              = "success"
@@ -86,6 +102,7 @@ class Constants {
     static let KEY_PUB_IMAGEURL_B           = "pub_imageurl"
 	static let KEY_PUB_CONTACTEMAIL_B		= "pub_contactemail"
 	static let KEY_PUB_CONTACTPASSWORD_B	= "pub_contactpassword"
+	static let KEY_PUB_PRODUCTS_B			= "pub_products"
     
     //product key
     
@@ -111,7 +128,7 @@ class Constants {
 	
 	//mapview controller max radius
 	
-	static let MAP_VIEW_MAX_RADIUS			= 10.0
+	static let MAP_VIEW_MAX_RADIUS			= 4.0
 	
 	//add cardviewcontroller status 
 	
@@ -148,6 +165,11 @@ class Constants {
 	static let KEY_PAYMENT_PRODUCTPRICE		= "productPrice"
 	static let KEY_PAYMENT_STRIPE_TOKEN		= "stripeToken"
 	static let KEY_PAYMENT_CUSTOMEREMAIL	= "customerEmail"
+	
+	
+	static let VIEW_FROM_PAYMENT			= 1
+	
+	
 	
     
     

@@ -11,13 +11,12 @@ import UIKit
 class PubDetailViewController: BaseViewController {
 
 	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var decriptionTextView: UITextView!
+	@IBOutlet weak var decriptionTextField: UILabel!
 	@IBOutlet weak var productsTableView: UITableView!
 	
 	var pub = PubModel()
 	
-    
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -35,14 +34,24 @@ class PubDetailViewController: BaseViewController {
 	
 	func showPubDetail() {
 		var description = ""
-		description.append("Name: \(pub.pub_name)\n")
-		description.append("Vicinity: \(pub.pub_vicinity)\n")
-		description.append("Open hours: \(pub.getOpenhourString())")
+		description.append("Name:      \(pub.pub_name)\n")
+		description.append("Vicinity:  \(pub.pub_vicinity)\n")
+		description.append("Open hours: \(pub.getOpenhourString())\n")
 		description.append("Contact Email: \(pub.pub_contactemail)")
-		decriptionTextView.text = description
+		decriptionTextField.text = description
+		productsTableView.reloadData()
 	}
     
+	@IBAction func backButtonTapped(_ sender: Any) {
+		self.navigationController?.popViewController(animated: true)
+	}
 
+	@IBAction func addPubButtonTapped(_ sender: Any) {
+		let addPubVC = self.storyboard?.instantiateViewController(withIdentifier: "AddProductViewController") as! AddProductViewController
+		addPubVC.pubId = pub.pub_id
+		self.navigationController?.pushViewController(addPubVC, animated: true)
+		
+	}
 }
 
 extension PubDetailViewController : UITableViewDelegate, UITableViewDataSource {

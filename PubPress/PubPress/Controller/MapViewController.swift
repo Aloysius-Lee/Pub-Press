@@ -184,8 +184,8 @@ extension MapViewController: MKMapViewDelegate{
         let pub = starbucksAnnotation.pub
 		if status == Constants.MAP_VIEW_MAIN {
 			let rootVC = self.parent?.parent?.parent as! RootViewController
-			if pub.pub_placeid != rootVC.currentPub.pub_placeid{
-				rootVC.currentPub = pub
+			if pub.pub_placeid != rootVC.selectedPub.pub_placeid{
+				rootVC.selectedPub = pub
 				rootVC.setPubView()
 			}
 		}

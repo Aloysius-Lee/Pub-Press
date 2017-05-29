@@ -63,13 +63,20 @@ class AddPubViewController: BaseViewController {
 			if message == Constants.PROCESS_SUCCESS {
 				UserDefaults.standard.set(registeredPub.pub_contactemail, forKey: Constants.KEY_EMAIL)
 				UserDefaults.standard.set(registeredPub.pub_contactpassword, forKey: Constants.KEY_PASSWORD)
-				self.gotoMainScene()
+				self.gotoAddCard()
 			}
 			else {
 				self.showToastWithDuration(string: message, duration: 3.0)
 			}
 			
 		})
+	}
+	
+	func gotoAddCard() {
+		let addCardVC = storyboard?.instantiateViewController(withIdentifier: "AddCardViewController") as! AddCardViewController
+		addCardVC.status = Constants.ADDCARD_VIEW_REGISTER
+		addCardVC.pub = pub
+		self.navigationController?.pushViewController(addCardVC, animated: true)
 	}
 	
 }

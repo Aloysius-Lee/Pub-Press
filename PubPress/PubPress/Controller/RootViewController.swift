@@ -24,12 +24,16 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
     @IBOutlet weak var pubNameLabel: UILabel!
     
     
-    var currentPub = PubModel()
+    var selectedPub = PubModel()
     
     var selectedVC = 0
     
     var carbonTabSwipeNavigation = CarbonTabSwipeNavigation()
     var contentVCs : [UIViewController] = []
+	
+	
+	var fromWhere = 0
+	static var message = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,15 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		if fromWhere == Constants.VIEW_FROM_PAYMENT {
+			showToastWithDuration(string: RootViewController.message, duration: 3.0)
+			
+		}
+		RootViewController.message = ""
+		fromWhere = 0
+	}
     
     func initView(){
         
@@ -70,20 +83,28 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
         
     }
     @IBAction func beerButtonTapped(_ sender: Any) {
-        /*if selectedVC == 0{
-            setVC(1)
-        }
-        else{
-            setVC(0)
-        }*/
-        
-            if selectedVC == 0{
-                setVC(1)
-            }
-            else{
-                setVC(0)
-            }
+		if selectedVC == 0{
+			setVC(1)
+		}
+		else{
+			setVC(0)
+		}
     }
+	
+	@IBAction func buyProductButtonTapped(_ sender: Any) {
+		if currentUser.user_id.characters.count > 0 {
+			if selectedPub.pub_cheap_product.product_id.characters.count > 0 {
+				let paymentVC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentStartViewController") as! PaymentStartViewController
+				paymentVC.product = selectedPub.pub_cheap_product
+				paymentVC.pub_email = selectedPub.pub_contactemail
+				self.fromWhere = Constants.VIEW_FROM_PAYMENT
+				self.navigationController?.pushViewController(paymentVC, animated: true)
+				
+				
+			}
+		}
+	}
+	
 
     //Mark: - CarbonTabSwipeNavigation Delegate
     // required
@@ -103,21 +124,21 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
     
     func setPubView() {
         
-        addressLabel.text = currentPub.pub_vicinity
-        if currentPub.pub_opennow {
+        addressLabel.text = selectedPub.pub_vicinity
+        if selectedPub.pub_opennow {
             openTimeLabel.text = "Open now"
             
         }
         else{
             openTimeLabel.text = "Close now"
         }
-        pubNameLabel.text = currentPub.pub_name
+        pubNameLabel.text = selectedPub.pub_name
         self.positionImageView.image = UIImage(named: "image_beer_cup")
-        if currentPub.photo_reference.characters.count > 0{
-            //showLoadingView()
+        if selectedPub.photo_reference.characters.count > 0{
+			
             self.view.isUserInteractionEnabled = false
             self.positionImageView.startAnimating()
-            ApiFunctions.getGooglePhotoes(currentPub.photo_reference, completion: { (success, data) in
+            ApiFunctions.getGooglePhotoes(selectedPub.photo_reference, completion: { (success, data) in
                 self.view.isUserInteractionEnabled = true
                 //self.hideLoadingView()
                 
@@ -128,13 +149,14 @@ class RootViewController: BaseViewController, CarbonTabSwipeNavigationDelegate{
             })
         }
         
-        ApiFunctions.getPlaceDetails(currentPub.pub_placeid) { (success, pub) in
+        ApiFunctions.getPlaceDetails(selectedPub.pub_placeid) { (success, pub) in
             if success{
-                self.currentPub = pub!
+                self.selectedPub = pub!
                 
                 self.addressLabel.text = pub!.pub_formatted_address
                 self.openTimeLabel.text = pub?.getOpenhourString()
                 self.pubNameLabel.text = pub!.pub_name
+				self.cheapestBeerLabel.text = pub!.pub_cheap_product.product_name + "/£" + pub!.pub_cheap_product.product_price
             }
         }
     }
